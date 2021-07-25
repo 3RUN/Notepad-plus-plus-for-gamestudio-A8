@@ -5583,7 +5583,7 @@
                 <Description>Samplers</Description>
                 <BuildIn>false</BuildIn>
                 <RegexPatterns>
-                  <string>/^(sampler)[[:blank:]]*([\*]*[[:blank:]]*[[:alnum:]_]+)[[:blank:]]*[=]/\2/E/e</string>
+                  <string>/^(sampler|sampler1D|sampler2D|sampler3D)[[:blank:]]+([\*]*[[:blank:]]*[[:alnum:]_]+)[[:blank:]]*[=]/\2/E/ei</string>
                 </RegexPatterns>
                 <Show>true</Show>
                 <TrackCaret>false</TrackCaret>
@@ -5601,7 +5601,7 @@
                 <Description>Defines and Macros</Description>
                 <BuildIn>false</BuildIn>
                 <RegexPatterns>
-                  <string>/^(\#define)[[:blank:]]*([[:alnum:]_]+)/\2/F/ei</string>
+                  <string>/^(\#define)[[:blank:]]*([[:alnum:]_]+)/\2/F/e</string>
                 </RegexPatterns>
                 <Show>true</Show>
                 <TrackCaret>false</TrackCaret>
