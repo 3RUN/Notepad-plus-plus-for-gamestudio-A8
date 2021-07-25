@@ -11,6 +11,7 @@ Known issues (solutions can be found below):
 - plugin icons on toolbar won't work correctly when Dark Mode is enabled
 - sourceCookifier might have troubles parsing some parts of your code (needs testing)
 - HLSL has only white theme out of the box (since it's UDL it's not possible to apply themes)
+- comment blocks won't hide anything from code jumper (sourceCookifier's parser)
 
 # How to use
 Simply copy Notepad++ folder into your GameStudio rootfolder and it's all set.
