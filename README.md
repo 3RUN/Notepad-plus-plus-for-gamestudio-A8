@@ -12,7 +12,7 @@ Known issues (solutions can be found below):
 - sourceCookifier might have troubles parsing some parts of your code (needs testing)
 - HLSL has only white theme out of the box (since it's UDL it's not possible to apply themes)
 
-# HOW TO USE ?
+# How to use
 Simply copy Notepad++ folder into your GameStudio rootfolder and it's all set.
 
 To fix void plugin icons after enabling Dark Mode:
