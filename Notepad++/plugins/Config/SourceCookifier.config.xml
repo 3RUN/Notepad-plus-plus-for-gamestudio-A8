@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <StartupShowMode>Show</StartupShowMode>
+  <MaxNumShownSymbols>10000</MaxNumShownSymbols>
+  <FileSizeLimit>2mb</FileSizeLimit>
+  <FileSizeLimitInc>5mb</FileSizeLimitInc>
+  <GoToDefByCtrlAndLmButton>false</GoToDefByCtrlAndLmButton>
+  <ShowGtdToolTips>false</ShowGtdToolTips>
+  <ShowMenuAtBottom>true</ShowMenuAtBottom>
+  <FlowingMenuButtons>false</FlowingMenuButtons>
+  <HandleCtagsWarnings>false</HandleCtagsWarnings>
+  <CaseSensitiveLanguageMaps>false</CaseSensitiveLanguageMaps>
+  <StartupSessionMode>Single file</StartupSessionMode>
+  <SessionFileExt>c00k!e</SessionFileExt>
+  <SaveRelativePaths>false</SaveRelativePaths>
+  <BackColor>-4144960</BackColor>
+  <ShowInvalidSources>false</ShowInvalidSources>
+  <ShowToolTips>false</ShowToolTips>
+  <ShowPlusMinusSource>false</ShowPlusMinusSource>
+  <ShowPlusMinusTags>false</ShowPlusMinusTags>
+  <SearchInSession>false</SearchInSession>
+  <SessionMode>None</SessionMode>
+  <CookieHistoryList />
+  <ViewMode>Grouped</ViewMode>
+  <ShowIcons>true</ShowIcons>
+  <SortTags>false</SortTags>
+  <FoldLevel>3</FoldLevel>
+</Config>

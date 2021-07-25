@@ -1,0 +1,6097 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+<NotepadPlus>
+	<AutoComplete language="C">
+		<Environment ignoreCase="no" startFunc="(" stopFunc=")" paramSeparator="," terminal=";" />
+		<KeyWord name="#define"/>
+		<KeyWord name="#undef"/>
+		<KeyWord name="PRAGMA_ZERO"/>
+		<KeyWord name="PRAGMA_POINTER"/>
+		<KeyWord name="PRAGMA_API"/>
+		<KeyWord name="PRAGMA_PLUGIN"/>
+		<KeyWord name="PRAGMA_PRINT"/>
+		<KeyWord name="PRAGMA_PATH"/>
+		<KeyWord name="PRAGMA_LEVEL"/>
+		<KeyWord name="PRAGMA_BIND"/>
+		<KeyWord name="#ifdef"/>
+		<KeyWord name="#ifndef"/>
+		<KeyWord name="#else"/>
+		<KeyWord name="#endif"/>
+		<KeyWord name="#include"/>
+		<KeyWord name="//!"/>
+
+		<!--Augmented reality / video camera plugin-->
+		<!--VIDEOCAMERA-->
+		<KeyWord name="MARKER"/>
+		<KeyWord name="videocamera_init" func="yes">
+			<Overload retVal="int" >
+				<Param name="int device number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="videocamera_dialog" func="yes">
+			<Overload retVal="int" >
+				<Param name="int *resolution x"/>
+				<Param name="int *resolution y"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="videocamera_getSize" func="yes">
+			<Overload retVal="int" >
+				<Param name="int *resolution x"/>
+				<Param name="int *resolution y"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="videocamera_close" func="yes">
+			<Overload retVal="void"/>
+		</KeyWord>
+		<KeyWord name="videocamera_getBmap" func="yes">
+			<Overload retVal="int" >
+				<Param name="BMAP *where write the frame"/>
+			</Overload>
+		</KeyWord>
+		<!--MARKER TRACKING-->
+		<KeyWord name="AR_init" func="yes">
+			<Overload retVal="int" >
+				<Param name="MARKER*"/>
+				<Param name="unsigned int number of markers"/>
+				<Param name="float camera focal length"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="AR_update" func="yes">
+			<Overload retVal="int"/>
+		</KeyWord>
+		<KeyWord name="AR_markDetect" func="yes">
+			<Overload retVal="int" >
+				<Param name="unsigned int"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="AR_getPosition" func="yes">
+			<Overload retVal="void" >
+				<Param name="unsigned int id"/>
+				<Param name="VECTOR*"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="AR_getEuler" func="yes">
+			<Overload retVal="void" >
+				<Param name="unsigned int id"/>
+				<Param name="ANGLE*"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="AR_getFov" func="yes">
+					<Overload retVal="var"/>
+		</KeyWord>
+		<KeyWord name="AR_flipHorizontal" func="yes">
+			<Overload retVal="void" >
+				<Param name="BOOL"/>
+			</Overload>
+		</KeyWord>
+		<!--wrapper with acknex standard parameter and return types-->
+		<KeyWord name="vc_init" func="yes">
+				<Overload retVal="var" >
+						<Param name="var id"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vc_dialog" func="yes">
+			<Overload retVal="var" >
+				<Param name="var *width"/>
+				<Param name="var *height"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vc_getsize" func="yes">
+			<Overload retVal="var" >
+				<Param name="var *width"/>
+				<Param name="var *height"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vc_getbmap" func="yes">
+			<Overload retVal="var" >
+				<Param name="BMAP *bmap"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vc_close" func="yes"/>
+		<KeyWord name="ar_init" func="yes">
+			<Overload retVal="var" >
+				<Param name="var *markers"/>
+				<Param name="var num_markers"/>
+				<Param name="var width"/>
+				<Param name="var focal_length"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ar_update"/>
+		<KeyWord name="ar_getFov"/>
+		<KeyWord name="ar_flipHorizontal"/>
+		<KeyWord name="ar_position" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="var id"/>
+				<Param name="VECTOR *vec"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ar_angle" func="yes">
+			<Overload retVal="ANGLE*" >
+				<Param name="var id"/>
+				<Param name="ANGLE *vec"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ar_detect" func="yes">
+			<Overload retVal="var" >
+				<Param name="var id"/>
+			</Overload>
+		</KeyWord>
+
+		<!--ACKNET_H-->
+		<KeyWord name="http_proxy" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *proxy"/>
+				<Param name="var port"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="http_sendpost" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *url"/>
+				<Param name="char *data"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="http_status" func="yes">
+			<Overload retVal="var" >
+				<Param name="var httpid"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="http_result" func="yes">
+			<Overload retVal="var" >
+				<Param name="var httpid"/>
+				<Param name="STRING* result"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="http_free" func="yes">
+			<Overload retVal="var" >
+				<Param name="var httpid"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ftp_download" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *url"/>
+				<Param name="char *path"/>
+				<Param name="char *username"/>
+				<Param name="char *password"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ftp_upload" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *url"/>
+				<Param name="char *path"/>
+				<Param name="char *username"/>
+				<Param name="char *password"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ftp_getdate" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *url"/>
+				<Param name="char *username"/>
+				<Param name="char *password"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ftp_stop" func="yes"/>
+		<KeyWord name="ftp_size" func="yes">
+			<Overload retVal="long"/>
+		</KeyWord>
+		<KeyWord name="ftp_sent" func="yes">
+			<Overload retVal="long"/>
+		</KeyWord>
+		<KeyWord name="ftp_timestamp" func="yes">
+			<Overload retVal="long"/>
+		</KeyWord>
+		<KeyWord name="ftp_status" func="yes">
+					<Overload retVal="var"/>
+		</KeyWord>
+		<KeyWord name="ftp_debug" func="yes">
+			<Overload retVal="var" >
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+
+		<!--acknex_h-->
+		<KeyWord name="var"/>
+		<KeyWord name="function"/>
+		<KeyWord name="action"/>
+		<KeyWord name="abs" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="acos" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asin" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="atan" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="atan2" func="yes">
+			<Overload retVal="var" >
+				<Param name="var a"/>
+				<Param name="var b"/>
+			</Overload>
+			<Overload retVal="double" >
+				<Param name="double a"/>
+				<Param name="double b"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="cos" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sin" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="tan" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="txt_str" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="TEXT*"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wait" func="yes">
+			<Overload retVal="var" >
+				<Param name="var time"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="inchar" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING*"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="inkey" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING*"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="my"/>
+		<KeyWord name="your"/>
+		<KeyWord name="nullvector"/>
+		<KeyWord name="set" func="yes">
+			<Overload retVal="void" >
+				<Param name="obj"/>
+				<Param name="flag"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="reset" func="yes">
+			<Overload retVal="void" >
+				<Param name="obj"/>
+				<Param name="flag"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="toggle" func="yes">
+			<Overload retVal="void" >
+				<Param name="obj"/>
+				<Param name="flag"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="is" func="yes">
+			<Overload retVal="var" >
+				<Param name="obj"/>
+				<Param name="flag"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="reset_emask" func="yes"/>
+		<KeyWord name="wait_for" func="yes">
+			<Overload retVal="void" >
+				<Param name="f"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wait_for_my" func="yes">
+			<Overload retVal="void" >
+				<Param name="f"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="zero" func="yes">
+			<Overload retVal="void" >
+				<Param name="ptr"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_zero" func="yes">
+			<Overload retVal="void" >
+				<Param name="vec"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="set_zero" func="yes">
+			<Overload retVal="void" >
+				<Param name="ptr"/>
+				<Param name="len"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="safe_remove" func="yes">
+			<Overload retVal="void" >
+				<Param name="ptr"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="_VAR" func="yes">
+			<Overload retVal="var" >
+				<Param name="int i"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="_INT" func="yes">
+			<Overload retVal="int" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="fixv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var f"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="COLOR_WHITE"/>
+		<KeyWord name="COLOR_BLUE"/>
+		<KeyWord name="COLOR_GREEN"/>
+		<KeyWord name="COLOR_RED"/>
+		<KeyWord name="COLOR_GREY"/>
+		<KeyWord name="COLOR_BLACK"/>
+		<KeyWord name="COLOR_CLEAR"/>
+		<KeyWord name="NULLVECTOR"/>
+		<KeyWord name="VAR_MAX"/>
+		<KeyWord name="VAR_MIN"/>
+		<KeyWord name="SPHERE_MDL"/>
+		<KeyWord name="CUBE_MDL"/>
+		<KeyWord name="SHADOW_DDS"/>
+		<KeyWord name="SKILL_DEFAULT" func="yes">
+			<Overload retVal="void" >
+				<Param name="skill"/>
+				<Param name="def"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="SND_CREATE_STATIC" func="yes">
+			<Overload retVal="void" >
+				<Param name="name"/>
+				<Param name="file"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="BMAP_CREATE_STATIC" func="yes">
+			<Overload retVal="void" >
+				<Param name="name"/>
+				<Param name="file"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="MTL_CREATE_STATIC" func="yes">
+			<Overload retVal="void" >
+				<Param name="name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="DEBUG_VAR" func="yes">
+			<Overload retVal="void" >
+				<Param name="vv"/>
+				<Param name="pos_y"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="DEBUG_BMAP" func="yes">
+			<Overload retVal="void" >
+				<Param name="bmap"/>
+				<Param name="pos_x"/>
+				<Param name="scale"/>
+			</Overload>
+		</KeyWord>
+
+		<!--ACKOAL_H-->
+		<KeyWord name="ASOUND"/>
+		<KeyWord name="SNDFILTER"/>
+		<KeyWord name="REVERB"/>
+		<KeyWord name="asnd_add" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="var offset"/>
+				<Param name="void *sample"/>
+				<Param name="var length"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_buffer" func="yes">
+			<Overload retVal="var" >
+				<Param name="ASOUND *snd"/>
+				<Param name="void **pDesc"/>
+				<Param name="void ***ppSample"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="snd_createoal" func="yes">
+			<Overload retVal="ASOUND*" >
+				<Param name="char *filename"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="snd_createstream" func="yes">
+			<Overload retVal="ASOUND*" >
+				<Param name="char *filename"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_ent_playloop" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY*"/>
+				<Param name="ASOUND *sound"/>
+				<Param name="var volume"/>
+				<Param name="var range"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_ent_playsound" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY*"/>
+				<Param name="ASOUND *sound"/>
+				<Param name="var volume"/>
+				<Param name="var range"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_getNumSounds" func="yes">
+			<Overload retVal="var"/>
+		</KeyWord>
+		<KeyWord name="asnd_play" func="yes">
+			<Overload retVal="var" >
+				<Param name="ASOUND *sound"/>
+				<Param name="var volume"/>
+				<Param name="var balance"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_loop" func="yes">
+			<Overload retVal="var" >
+				<Param name="ASOUND *sound"/>
+				<Param name="var volume"/>
+				<Param name="var balance"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_pause" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_playing" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_start" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_stop" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_stopall" func="yes">
+			<Overload retVal="var" >
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_tune" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="var volume"/>
+				<Param name="var frequency"/>
+				<Param name="var balance"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_setMasterVolume" func="yes">
+			<Overload retVal="void" >
+				<Param name="var newVolume"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_getMasterVolume" func="yes">
+			<Overload retVal="var"/>
+		</KeyWord>
+		<KeyWord name="asnd_setSpeedOfSound" func="yes">
+			<Overload retVal="void" >
+				<Param name="var value"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_getSpeedOfSound" func="yes">
+			<Overload retVal="var"/>
+		</KeyWord>
+		<KeyWord name="snd_cone" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="ANGLE *angle"/>
+				<Param name="var *sector"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_releaseEntity" func="yes">
+			<Overload retVal="void" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asnd_updateFunctions" func="yes">
+			<Overload retVal="void"/>
+		</KeyWord>
+		<KeyWord name="eax_create" func="yes">
+			<Overload retVal="var"/>
+		</KeyWord>
+		<KeyWord name="eax_remove" func="yes">
+			<Overload retVal="var" >
+				<Param name="var reverb"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="eax_attach" func="yes">
+			<Overload retVal="var" >
+				<Param name="var reverb"/>
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="eax_detach" func="yes">
+			<Overload retVal="var" >
+				<Param name="var reverb"/>
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="eax_set" func="yes">
+			<Overload retVal="var" >
+				<Param name="var reverb"/>
+				<Param name="REVERB *parameters"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="eax_setfilter" func="yes">
+			<Overload retVal="var" >
+				<Param name="var env"/>
+				<Param name="SNDFILTER *filter"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="eax_gain" func="yes">
+			<Overload retVal="var" >
+				<Param name="var env"/>
+				<Param name="var value"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="eax_getAuxEffect" func="yes">
+			<Overload retVal="var" >
+				<Param name="var reverb"/>
+				<Param name="void *pointer"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="eax_getAuxFilter" func="yes">
+			<Overload retVal="var" >
+				<Param name="var reverb"/>
+				<Param name="void *pointer"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="eax_getDirectFilter" func="yes">
+			<Overload retVal="var" >
+				<Param name="var reverb"/>
+				<Param name="void *pointer"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="eax_getGain" func="yes">
+			<Overload retVal="var" >
+				<Param name="var reverb"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="eax_getSlot" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="eax_setDirectFilter" func="yes">
+			<Overload retVal="var" >
+				<Param name="var reverb"/>
+				<Param name="void *pointer"/>
+			</Overload>
+		</KeyWord>
+		<!--EAX STANDRAD PRESETS-->
+		<KeyWord name="FX_GENERIC"/>
+		<KeyWord name="FX_GENERIC_FILTER"/>
+		<KeyWord name="FX_PADDEDCELL"/>
+		<KeyWord name="FX_PADDEDCELL_FILTER"/>
+		<KeyWord name="FX_ROOM"/>
+		<KeyWord name="FX_ROOM_FILTER"/>
+		<KeyWord name="FX_BATHROOM"/>
+		<KeyWord name="FX_BATHROOM_FILTER"/>
+		<KeyWord name="FX_LIVINGROOM"/>
+		<KeyWord name="FX_LIVINGROOM_FILTER"/>
+		<KeyWord name="FX_STONEROOM"/>
+		<KeyWord name="FX_STONEROOM_FILTER"/>
+		<KeyWord name="FX_AUDITORIUM"/>
+		<KeyWord name="FX_AUDITORIUM_FILTER"/>
+		<KeyWord name="FX_CONCERTHALL"/>
+		<KeyWord name="FX_CONCERTHALL_FILTER"/>
+		<KeyWord name="FX_CAVE"/>
+		<KeyWord name="FX_CAVE_FILTER"/>
+		<KeyWord name="FX_ARENA"/>
+		<KeyWord name="FX_ARENA_FILTER"/>
+		<KeyWord name="FX_HANGAR"/>
+		<KeyWord name="FX_HANGAR_FILTER"/>
+		<KeyWord name="FX_CARPETTEDHALLWAY"/>
+		<KeyWord name="FX_CARPETTEDHALLWAY_FILTER"/>
+		<KeyWord name="FX_HALLWAY"/>
+		<KeyWord name="FX_HALLWAY_FILTER"/>
+		<KeyWord name="FX_STONECORRIDOR"/>
+		<KeyWord name="FX_STONECORRIDOR_FILTER"/>
+		<KeyWord name="FX_ALLEY"/>
+		<KeyWord name="FX_ALLEY_FILTER"/>
+		<KeyWord name="FX_FOREST"/>
+		<KeyWord name="FX_FOREST_FILTER"/>
+		<KeyWord name="FX_CITY"/>
+		<KeyWord name="FX_CITY_FILTER"/>
+		<KeyWord name="FX_MOUNTAINS"/>
+		<KeyWord name="FX_MOUNTAINS_FILTER"/>
+		<KeyWord name="FX_QUARRY"/>
+		<KeyWord name="FX_QUARRY_FILTER"/>
+		<KeyWord name="FX_PLAIN"/>
+		<KeyWord name="FX_PLAIN_FILTER"/>
+		<KeyWord name="FX_PARKINGLOT"/>
+		<KeyWord name="FX_PARKINGLOT_FILTER"/>
+		<KeyWord name="FX_SEWERPIPE"/>
+		<KeyWord name="FX_SEWERPIPE_FILTER"/>
+		<KeyWord name="FX_UNDERWATER"/>
+		<KeyWord name="FX_UNDERWATER_FILTER"/>
+		<KeyWord name="FX_DRUGGED"/>
+		<KeyWord name="FX_DRUGGED_FILTER"/>
+		<KeyWord name="FX_DIZZY"/>
+		<KeyWord name="FX_DIZZY_FILTER"/>
+		<KeyWord name="FX_PSYCHOTIC"/>
+		<KeyWord name="FX_PSYCHOTIC_FILTER"/>
+		<!--CASTLE PRESETS-->
+		<KeyWord name="FX_CASTLE_SMALLROOM"/>
+		<KeyWord name="FX_CASTLE_SMALLROOM_FILTER"/>
+		<KeyWord name="FX_CASTLE_SHORTPASSAGE"/>
+		<KeyWord name="FX_CASTLE_SHORTPASSAGE_FILTER"/>
+		<KeyWord name="FX_CASTLE_MEDIUMROOM"/>
+		<KeyWord name="FX_CASTLE_MEDIUMROOM_FILTER"/>
+		<KeyWord name="FX_CASTLE_LONGPASSAGE"/>
+		<KeyWord name="FX_CASTLE_LONGPASSAGE_FILTER"/>
+		<KeyWord name="FX_CASTLE_LARGEROOM"/>
+		<KeyWord name="FX_CASTLE_LARGEROOM_FILTER"/>
+		<KeyWord name="FX_CASTLE_HALL"/>
+		<KeyWord name="FX_CASTLE_HALL_FILTER"/>
+		<KeyWord name="FX_CASTLE_CUPBOARD"/>
+		<KeyWord name="FX_CASTLE_CUPBOARD_FILTER"/>
+		<KeyWord name="FX_CASTLE_COURTYARD"/>
+		<KeyWord name="FX_CASTLE_COURTYARD_FILTER"/>
+		<KeyWord name="FX_CASTLE_ALCOVE"/>
+		<KeyWord name="FX_CASTLE_ALCOVE_FILTER"/>
+		<!--FACTORY PRESETS-->
+		<KeyWord name="FX_FACTORY_ALCOVE"/>
+		<KeyWord name="FX_FACTORY_ALCOVE_FILTER"/>
+		<KeyWord name="FX_FACTORY_SHORTPASSAGE"/>
+		<KeyWord name="FX_FACTORY_SHORTPASSAGE_FILTER"/>
+		<KeyWord name="FX_FACTORY_MEDIUMROOM"/>
+		<KeyWord name="FX_FACTORY_MEDIUMROOM_FILTER"/>
+		<KeyWord name="FX_FACTORY_LONGPASSAGE"/>
+		<KeyWord name="FX_FACTORY_LONGPASSAGE_FILTER"/>
+		<KeyWord name="FX_FACTORY_LARGEROOM"/>
+		<KeyWord name="FX_FACTORY_LARGEROOM_FILTER"/>
+		<KeyWord name="FX_FACTORY_HALL"/>
+		<KeyWord name="FX_FACTORY_HALL_FILTER"/>
+		<KeyWord name="FX_FACTORY_CUPBOARD"/>
+		<KeyWord name="FX_FACTORY_CUPBOARD_FILTER"/>
+		<KeyWord name="FX_FACTORY_COURTYARD"/>
+		<KeyWord name="FX_FACTORY_COURTYARD_FILTER"/>
+		<KeyWord name="FX_FACTORY_SMALLROOM"/>
+		<KeyWord name="FX_FACTORY_SMALLROOM_FILTER"/>
+		<!--ICE PALACE PRESETS-->
+		<KeyWord name="FX_ICEPALACE_ALCOVE"/>
+		<KeyWord name="FX_ICEPALACE_ALCOVE_FILTER"/>
+		<KeyWord name="FX_ICEPALACE_SHORTPASSAGE"/>
+		<KeyWord name="FX_ICEPALACE_SHORTPASSAGE_FILTER"/>
+		<KeyWord name="FX_ICEPALACE_MEDIUMROOM"/>
+		<KeyWord name="FX_ICEPALACE_MEDIUMROOM_FILTER"/>
+		<KeyWord name="FX_ICEPALACE_LONGPASSAGE"/>
+		<KeyWord name="FX_ICEPALACE_LONGPASSAGE_FILTER"/>
+		<KeyWord name="FX_ICEPALACE_LARGEROOM"/>
+		<KeyWord name="FX_ICEPALACE_LARGEROOM_FILTER"/>
+		<KeyWord name="FX_ICEPALACE_HALL"/>
+		<KeyWord name="FX_ICEPALACE_HALL_FILTER"/>
+		<KeyWord name="FX_ICEPALACE_CUPBOARD"/>
+		<KeyWord name="FX_ICEPALACE_CUPBOARD_FILTER"/>
+		<KeyWord name="FX_ICEPALACE_COURTYARD"/>
+		<KeyWord name="FX_ICEPALACE_COURTYARD_FILTER"/>
+		<KeyWord name="FX_ICEPALACE_SMALLROOM"/>
+		<KeyWord name="FX_ICEPALACE_SMALLROOM_FILTER"/>
+		<!--SPACE STATION PRESETS-->
+		<KeyWord name="FX_SPACESTATION_ALCOVE"/>
+		<KeyWord name="FX_SPACESTATION_ALCOVE_FILTER"/>
+		<KeyWord name="FX_SPACESTATION_MEDIUMROOM"/>
+		<KeyWord name="FX_SPACESTATION_MEDIUMROOM_FILTER"/>
+		<KeyWord name="FX_SPACESTATION_SHORTPASSAGE"/>
+		<KeyWord name="FX_SPACESTATION_SHORTPASSAGE_FILTER"/>
+		<KeyWord name="FX_SPACESTATION_LONGPASSAGE"/>
+		<KeyWord name="FX_SPACESTATION_LONGPASSAGE_FILTER"/>
+		<KeyWord name="FX_SPACESTATION_LARGEROOM"/>
+		<KeyWord name="FX_SPACESTATION_LARGEROOM_FILTER"/>
+		<KeyWord name="FX_SPACESTATION_HALL"/>
+		<KeyWord name="FX_SPACESTATION_HALL_FILTER"/>
+		<KeyWord name="FX_SPACESTATION_CUPBOARD"/>
+		<KeyWord name="FX_SPACESTATION_CUPBOARD_FILTER"/>
+		<KeyWord name="FX_SPACESTATION_SMALLROOM"/>
+		<KeyWord name="FX_SPACESTATION_SMALLROOM_FILTER"/>
+		<!--WOODEN GALLEON PRESETS-->
+		<KeyWord name="FX_WOODEN_ALCOVE"/>
+		<KeyWord name="FX_WOODEN_ALCOVE_FILTER"/>
+		<KeyWord name="FX_WOODEN_SHORTPASSAGE"/>
+		<KeyWord name="FX_WOODEN_SHORTPASSAGE_FILTER"/>
+		<KeyWord name="FX_WOODEN_MEDIUMROOM"/>
+		<KeyWord name="FX_WOODEN_MEDIUMROOM_FILTER"/>
+		<KeyWord name="FX_WOODEN_LONGPASSAGE"/>
+		<KeyWord name="FX_WOODEN_LONGPASSAGE_FILTER"/>
+		<KeyWord name="FX_WOODEN_LARGEROOM"/>
+		<KeyWord name="FX_WOODEN_LARGEROOM_FILTER"/>
+		<KeyWord name="FX_WOODEN_HALL"/>
+		<KeyWord name="FX_WOODEN_HALL_FILTER"/>
+		<KeyWord name="FX_WOODEN_CUPBOARD"/>
+		<KeyWord name="FX_WOODEN_CUPBOARD_FILTER"/>
+		<KeyWord name="FX_WOODEN_SMALLROOM"/>
+		<KeyWord name="FX_WOODEN_SMALLROOM_FILTER"/>
+		<KeyWord name="FX_WOODEN_COURTYARD"/>
+		<KeyWord name="FX_WOODEN_COURTYARD_FILTER"/>
+		<!--SPORTS PRESETS-->
+		<KeyWord name="FX_SPORT_EMPTYSTADIUM"/>
+		<KeyWord name="FX_SPORT_EMPTYSTADIUM_FILTER"/>
+		<KeyWord name="FX_SPORT_SQUASHCOURT"/>
+		<KeyWord name="FX_SPORT_SQUASHCOURT_FILTER"/>
+		<KeyWord name="FX_SPORT_SMALLSWIMMINGPOOL"/>
+		<KeyWord name="FX_SPORT_SMALLSWIMMINGPOOL_FILTER"/>
+		<KeyWord name="FX_SPORT_LARGESWIMMINGPOOL"/>
+		<KeyWord name="FX_SPORT_LARGESWIMMINGPOOL_FILTER"/>
+		<KeyWord name="FX_SPORT_GYMNASIUM"/>
+		<KeyWord name="FX_SPORT_GYMNASIUM_FILTER"/>
+		<KeyWord name="FX_SPORT_FULLSTADIUM"/>
+		<KeyWord name="FX_SPORT_FULLSTADIUM_FILTER"/>
+		<KeyWord name="FX_SPORT_STADIUMTANNOY"/>
+		<KeyWord name="FX_SPORT_STADIUMTANNOY_FILTER"/>
+		<!--PREFAB PRESETS-->
+		<KeyWord name="FX_PREFAB_WORKSHOP"/>
+		<KeyWord name="FX_PREFAB_WORKSHOP_FILTER"/>
+		<KeyWord name="FX_PREFAB_SCHOOLROOM"/>
+		<KeyWord name="FX_PREFAB_SCHOOLROOM_FILTER"/>
+		<KeyWord name="FX_PREFAB_PRACTISEROOM"/>
+		<KeyWord name="FX_PREFAB_PRACTISEROOM_FILTER"/>
+		<KeyWord name="FX_PREFAB_OUTHOUSE"/>
+		<KeyWord name="FX_PREFAB_OUTHOUSE_FILTER"/>
+		<KeyWord name="FX_PREFAB_CARAVAN"/>
+		<KeyWord name="FX_PREFAB_CARAVAN_FILTER"/>
+		<!--DOME AND PIPE PRESETS-->
+		<KeyWord name="FX_DOME_TOMB"/>
+		<KeyWord name="FX_DOME_TOMB_FILTER"/>
+		<KeyWord name="FX_PIPE_SMALL"/>
+		<KeyWord name="FX_PIPE_SMALL_FILTER"/>
+		<KeyWord name="FX_DOME_SAINTPAULS"/>
+		<KeyWord name="FX_DOME_SAINTPAULS_FILTER"/>
+		<KeyWord name="FX_PIPE_LONGTHIN"/>
+		<KeyWord name="FX_PIPE_LONGTHIN_FILTER"/>
+		<KeyWord name="FX_PIPE_LARGE"/>
+		<KeyWord name="FX_PIPE_LARGE_FILTER"/>
+		<KeyWord name="FX_PIPE_RESONANT"/>
+		<KeyWord name="FX_PIPE_RESONANT_FILTER"/>
+		<!--OUTDOORS PRESETS-->
+		<KeyWord name="FX_OUTDOORS_BACKYARD"/>
+		<KeyWord name="FX_OUTDOORS_BACKYARD_FILTER"/>
+		<KeyWord name="FX_OUTDOORS_ROLLINGPLAINS"/>
+		<KeyWord name="FX_OUTDOORS_ROLLINGPLAINS_FILTER"/>
+		<KeyWord name="FX_OUTDOORS_DEEPCANYON"/>
+		<KeyWord name="FX_OUTDOORS_DEEPCANYON_FILTER"/>
+		<KeyWord name="FX_OUTDOORS_CREEK"/>
+		<KeyWord name="FX_OUTDOORS_CREEK_FILTER"/>
+		<KeyWord name="FX_OUTDOORS_VALLEY"/>
+		<KeyWord name="FX_OUTDOORS_VALLEY_FILTER"/>
+		<!--MOOD PRESETS-->
+		<KeyWord name="FX_MOOD_HEAVEN"/>
+		<KeyWord name="FX_MOOD_HEAVEN_FILTER"/>
+		<KeyWord name="FX_MOOD_HELL"/>
+		<KeyWord name="FX_MOOD_HELL_FILTER"/>
+		<KeyWord name="FX_MOOD_MEMORY"/>
+		<KeyWord name="FX_MOOD_MEMORY_FILTER"/>
+		<!--DRIVING SIMULATION PRESETS-->
+		<KeyWord name="FX_DRIVING_COMMENTATOR"/>
+		<KeyWord name="FX_DRIVING_COMMENTATOR_FILTER"/>
+		<KeyWord name="FX_DRIVING_PITGARAGE"/>
+		<KeyWord name="FX_DRIVING_PITGARAGE_FILTER"/>
+		<KeyWord name="FX_DRIVING_INCAR_RACER"/>
+		<KeyWord name="FX_DRIVING_INCAR_RACER_FILTER"/>
+		<KeyWord name="FX_DRIVING_INCAR_SPORTS"/>
+		<KeyWord name="FX_DRIVING_INCAR_SPORTS_FILTER"/>
+		<KeyWord name="FX_DRIVING_INCAR_LUXURY"/>
+		<KeyWord name="FX_DRIVING_INCAR_LUXURY_FILTER"/>
+		<KeyWord name="FX_DRIVING_FULLGRANDSTAND"/>
+		<KeyWord name="FX_DRIVING_FULLGRANDSTAND_FILTER"/>
+		<KeyWord name="FX_DRIVING_EMPTYGRANDSTAND"/>
+		<KeyWord name="FX_DRIVING_EMPTYGRANDSTAND_FILTER"/>
+		<KeyWord name="FX_DRIVING_TUNNEL"/>
+		<KeyWord name="FX_DRIVING_TUNNEL_FILTER"/>
+		<!--CITY PRESETS-->
+		<KeyWord name="FX_CITY_STREETS"/>
+		<KeyWord name="FX_CITY_STREETS_FILTER"/>
+		<KeyWord name="FX_CITY_SUBWAY"/>
+		<KeyWord name="FX_CITY_SUBWAY_FILTER"/>
+		<KeyWord name="FX_CITY_MUSEUM"/>
+		<KeyWord name="FX_CITY_MUSEUM_FILTER"/>
+		<KeyWord name="FX_CITY_LIBRARY"/>
+		<KeyWord name="FX_CITY_LIBRARY_FILTER"/>
+		<KeyWord name="FX_CITY_UNDERPASS"/>
+		<KeyWord name="FX_CITY_UNDERPASS_FILTER"/>
+		<KeyWord name="FX_CITY_ABANDONED"/>
+		<KeyWord name="FX_CITY_ABANDONED_FILTER"/>
+		<!--MISC ROOMS-->
+		<KeyWord name="FX_DUSTYROOM"/>
+		<KeyWord name="FX_DUSTYROOM_FILTER"/>
+		<KeyWord name="FX_CHAPEL"/>
+		<KeyWord name="FX_CHAPEL_FILTER"/>
+		<KeyWord name="FX_SMALLWATERROOM"/>
+		<KeyWord name="FX_SMALLWATERROOM_FILTER"/>
+
+		<!--ACKPHYSX_H-->
+		<KeyWord name="PH_RIGID"/>
+		<KeyWord name="PH_STATIC"/>
+		<KeyWord name="PH_CHAR"/>
+		<KeyWord name="PH_BOX"/>
+		<KeyWord name="PH_SPHERE"/>
+		<KeyWord name="PH_CAPSULE"/>
+		<KeyWord name="PH_POLY"/>
+		<KeyWord name="PH_CONVEX"/>
+		<KeyWord name="PH_TERRAIN"/>
+		<KeyWord name="PH_PLANE"/>
+		<KeyWord name="PH_MODIFIED"/>
+		<KeyWord name="PH_BALL"/>
+		<KeyWord name="PH_HINGE"/>
+		<KeyWord name="PH_SLIDER"/>
+		<KeyWord name="PH_WHEEL"/>
+		<KeyWord name="PH_ROPE"/>
+		<KeyWord name="PH_6DJOINT"/>
+		<KeyWord name="PH_PRISMA"/>
+		<KeyWord name="NX_IGNORE_PAIR"/>
+		<KeyWord name="NX_NOTIFY_ON_START_TOUCH"/>
+		<KeyWord name="NX_NOTIFY_ON_END_TOUCH"/>
+		<KeyWord name="NX_NOTIFY_ON_TOUCH"/>
+		<KeyWord name="NX_D6JOINT_MOTION_LOCKED"/>
+		<KeyWord name="NX_D6JOINT_MOTION_LIMITED"/>
+		<KeyWord name="NX_D6JOINT_MOTION_FREE"/>
+		<KeyWord name="NX_D6JOINT_DRIVE_POSITION"/>
+		<KeyWord name="NX_D6JOINT_DRIVE_VELOCITY"/>
+		<KeyWord name="NX_FORCE"/>
+		<KeyWord name="NX_IMPULSE"/>
+		<KeyWord name="NX_VELOCITY_CHANGE"/>
+		<KeyWord name="NX_SMOOTH_IMPULSE"/>
+		<KeyWord name="NX_SMOOTH_VELOCITY_CHANGE"/>
+		<KeyWord name="NX_ACCELERATION"/>
+		<KeyWord name="NX_STATIC_SHAPES"/>
+		<KeyWord name="NX_DYNAMIC_SHAPES"/>
+		<KeyWord name="NX_ALL_SHAPES"/>
+		<KeyWord name="NX_RAYCAST_ENTITY"/>
+		<KeyWord name="NX_RAYCAST_IMPACT"/>
+		<KeyWord name="NX_RAYCAST_NORMAL"/>
+		<KeyWord name="NX_RAYCAST_FACE_INDEX"/>
+		<KeyWord name="NX_RAYCAST_DISTANCE"/>
+		<KeyWord name="NX_RAYCAST_UV"/>
+		<KeyWord name="NX_RAYCAST_FACE_NORMAL"/>
+		<KeyWord name="NX_RAYCAST_MATERIAL"/>
+		<KeyWord name="NX_BF_DISABLE_GRAVITY"/>
+		<KeyWord name="NX_BF_FROZEN_POS_X"/>
+		<KeyWord name="NX_BF_FROZEN_POS_Z"/>
+		<KeyWord name="NX_BF_FROZEN_POS_Y"/>
+		<KeyWord name="NX_BF_FROZEN_ROLL"/>
+		<KeyWord name="NX_BF_FROZEN_PAN"/>
+		<KeyWord name="NX_BF_FROZEN_TILT"/>
+		<KeyWord name="NX_BF_FROZEN_POS"/>
+		<KeyWord name="NX_BF_FROZEN_ROT"/>
+		<KeyWord name="NX_BF_FROZEN"/>
+		<KeyWord name="NX_BF_KINEMATIC"/>
+		<KeyWord name="NX_BF_VISUALIZATION"/>
+		<KeyWord name="NX_BF_DUMMY_0"/>
+		<KeyWord name="NX_BF_FILTER_SLEEP_VEL"/>
+		<KeyWord name="NX_BF_ENERGY_SLEEP_TEST"/>
+		<KeyWord name="NX_MF_ANISOTROPIC"/>
+		<KeyWord name="NX_MF_DISABLE_FRICTION"/>
+		<KeyWord name="NX_MF_DISABLE_STRONG_FRICTION"/>
+		<KeyWord name="NX_AF_DISABLE_COLLISION"/>
+		<KeyWord name="NX_AF_DISABLE_RESPONSE"/>
+		<KeyWord name="NX_AF_LOCK_COM"/>
+		<KeyWord name="NX_AF_FLUID_DISABLE_COLLISION"/>
+		<KeyWord name="NX_AF_CONTACT_MODIFICATION"/>
+		<KeyWord name="NX_AF_FORCE_CONE_FRICTION"/>
+		<KeyWord name="NX_AF_USER_ACTOR_PAIR_FILTERING"/>
+		<KeyWord name="NX_TRIGGER_ON_ENTER"/>
+		<KeyWord name="NX_TRIGGER_ON_LEAVE"/>
+		<KeyWord name="NX_TRIGGER_ON_STAY"/>
+		<KeyWord name="NX_TRIGGER_ENABLE"/>
+		<KeyWord name="NX_SF_VISUALIZATION"/>
+		<KeyWord name="NX_SF_DISABLE_COLLISION"/>
+		<KeyWord name="NX_SF_FEATURE_INDICES"/>
+		<KeyWord name="NX_SF_DISABLE_RAYCASTING"/>
+		<KeyWord name="NX_SF_POINT_CONTACT_FORCE"/>
+		<KeyWord name="NX_SF_FLUID_DRAIN"/>
+		<KeyWord name="NX_SF_FLUID_DISABLE_COLLISION"/>
+		<KeyWord name="NX_SF_FLUID_TWOWAY"/>
+		<KeyWord name="NX_SF_DISABLE_RESPONSE"/>
+		<KeyWord name="NX_SF_DYNAMIC_DYNAMIC_CCD"/>
+		<KeyWord name="NX_SF_DISABLE_SCENE_QUERIES"/>
+		<KeyWord name="NX_SF_CLOTH_DRAIN"/>
+		<KeyWord name="NX_SF_CLOTH_DISABLE_COLLISION"/>
+		<KeyWord name="NX_SF_CLOTH_TWOWAY"/>
+		<KeyWord name="NX_SF_SOFTBODY_DRAIN"/>
+		<KeyWord name="NX_SF_SOFTBODY_DISABLE_COLLISION"/>
+		<KeyWord name="NX_SF_SOFTBODY_TWOWAY"/>
+		<KeyWord name="NX_CLF_PRESSURE"/>
+		<KeyWord name="NX_CLF_STATIC"/>
+		<KeyWord name="NX_CLF_DISABLE_COLLISION"/>
+		<KeyWord name="NX_CLF_SELFCOLLISION"/>
+		<KeyWord name="NX_CLF_VISUALIZATION"/>
+		<KeyWord name="NX_CLF_GRAVITY"/>
+		<KeyWord name="NX_CLF_BENDING"/>
+		<KeyWord name="NX_CLF_BENDING_ORTHO"/>
+		<KeyWord name="NX_CLF_DAMPING"/>
+		<KeyWord name="NX_CLF_COLLISION_TWOWAY"/>
+		<KeyWord name="NX_CLF_TRIANGLE_COLLISION"/>
+		<KeyWord name="NX_CLF_TEARABLE"/>
+		<KeyWord name="NX_CLF_HARDWARE"/>
+		<KeyWord name="NX_CLF_COMDAMPING"/>
+		<KeyWord name="NX_CLF_VALIDBOUNDS"/>
+		<KeyWord name="NX_CLF_DISABLE_DYNAMIC_CCD"/>
+		<KeyWord name="NX_CLF_ADHERE"/>
+		<KeyWord name="NX_CLF_HARD_STRETCH_LIMITATION"/>
+		<KeyWord name="NX_CLOTH_ATTACHMENT_TWOWAY"/>
+		<KeyWord name="NX_CLOTH_ATTACHMENT_TEARABLE"/>
+		<KeyWord name="NX_CLOTH_ATTACHMENT_BOTH"/>
+		<KeyWord name="NX_TIMESTEP_FIXED"/>
+		<KeyWord name="NX_TIMESTEP_VARIABLE"/>
+		<KeyWord name="NX_TIMESTEP_INHERIT"/>
+		<KeyWord name="NX_NUM_TIMESTEP_METHODS"/>
+		<KeyWord name="NxPiF32"/>
+		<KeyWord name="CLOTH_DEFAULT"/>
+		<KeyWord name="physX_load" func="yes">
+			<Overload retVal="void*"/>
+		</KeyWord>
+		<KeyWord name="physX_destroy" func="yes"/>
+		<KeyWord name="physX_run" func="yes">
+			<Overload retVal="void*" >
+				<Param name="var deltatime"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pX_stats" func="yes">
+			<Overload retVal="var" >
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_cloth" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *cloth"/>
+				<Param name="ENTITY *attach1"/>
+				<Param name="var flag1"/>
+				<Param name="ENTITY *attach2"/>
+				<Param name="var flag2"/>
+				<Param name="var cloth_options[40]"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_reset_cloth" func="yes"/>
+		<KeyWord name="pX_setccd" func="yes">
+			<Overload retVal="var" >
+				<Param name="var active"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pX_setsteprate" func="yes">
+			<Overload retVal="var" >
+				<Param name="var rate"/>
+				<Param name="var maxIter"/>
+				<Param name="var TimeStepMethod"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pX_setunit" func="yes">
+			<Overload retVal="void" >
+				<Param name="var scale"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pX_pause" func="yes">
+			<Overload retVal="void" >
+				<Param name="var stop"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pX_setgroupcollision" func="yes">
+			<Overload retVal="var" >
+				<Param name="var group1"/>
+				<Param name="var group2"/>
+				<Param name="var collide"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pX_setforcemode" func="yes">
+			<Overload retVal="var" >
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_settriggerflag" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var type"/>
+				<Param name="var trigger"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setbodyflag" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var BodyFlag"/>
+				<Param name="var on"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setbodyflagall" func="yes">
+			<Overload retVal="var" >
+				<Param name="var BodyFlag"/>
+				<Param name="var on"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setactorflag" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var ActorFlag"/>
+				<Param name="var set"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setccdskeleton" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *CCDBoxSize"/>
+				<Param name="var dynamic_CCD"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setiterations" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var iteration"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setskinwidth" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var width"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setsleep" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setcollisionflag" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity1"/>
+				<Param name="ENTITY *entity2"/>
+				<Param name="var event"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_removeshape" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var shape_number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_addshape" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity1"/>
+				<Param name="ENTITY *entity2"/>
+				<Param name="var hull"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setposition" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *pos"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setvelocity" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *speed"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setangvelocity" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *speed"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_move" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *vReldist"/>
+				<Param name="VECTOR *vAbsdist"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_rotate" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="ANGLE *vRelAngle"/>
+				<Param name="ANGLE *vAbsAngle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setmaterial" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *standard"/>
+				<Param name="VECTOR *frictionV"/>
+				<Param name="VECTOR *anisotropic"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_addexplosion" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *vPos"/>
+				<Param name="var force"/>
+				<Param name="var radius"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXcon_set6djoint" func="yes">
+			<Overload retVal="void*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var JointMotion[6]"/>
+				<Param name="var JointDrive[6]"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXcon_getanchorpoint" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *point"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_raycast" func="yes">
+			<Overload retVal="ENTITY* or VECTOR*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *dir"/>
+				<Param name="var ShapesType"/>
+				<Param name="var hitflag"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_kinematic" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var on"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pX_pick" func="yes"/>
+		<KeyWord name="pX_setgravity" func="yes">
+			<Overload retVal="var" >
+				<Param name="VECTOR *gravity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pX_setautodisable" func="yes">
+			<Overload retVal="var" >
+				<Param name="var SleepLinearVel"/>
+				<Param name="var SleepAngularVel"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_settype" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var type"/>
+				<Param name="var hull"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_addforcecentral" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *vForce"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_addforceglobal" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *vForce"/>
+				<Param name="VECTOR *vPos"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_addforcelocal" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *vForce"/>
+				<Param name="VECTOR *vPos"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_addvelcentral" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *speed"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_addtorqueglobal" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *vecTorque"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_addtorquelocal" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *vecTorque"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_getangvelocity" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *OutVelocity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_getvelocity" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *OutVelocity"/>
+				<Param name="VECTOR *PointLocal"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setmaxspeed" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var maxangular"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setmass" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var mass"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_getmass" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setmassoffset" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *vOffset"/>
+				<Param name="VECTOR *vInertia"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_enable" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var enable"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setgroup" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var group"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setdamping" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var linear"/>
+				<Param name="var angular"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setfriction" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var friction"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_setelasticity" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var restitution"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_getbounds" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var ShapeNum"/>
+				<Param name="VECTOR *vecOut"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXent_makelocal" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *inGlobal"/>
+				<Param name="VECTOR *outLocal"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXcon_add" func="yes">
+			<Overload retVal="void*" >
+				<Param name="var constraintType"/>
+				<Param name="ENTITY *entity1"/>
+				<Param name="ENTITY *entity2"/>
+				<Param name="var intern_collision"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXcon_remove" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXcon_setparams1" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *vecParam1"/>
+				<Param name="VECTOR *vecParam2"/>
+				<Param name="VECTOR *vecParam3"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXcon_setparams2" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *vecParam4"/>
+				<Param name="VECTOR *vecParam5"/>
+				<Param name="VECTOR *vecParam6"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXcon_setwheel" func="yes">
+			<Overload retVal="void*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var SteerAngle"/>
+				<Param name="var MotorTorque"/>
+				<Param name="var BrakeTorque"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXcon_setmotor" func="yes">
+			<Overload retVal="void" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *vecParam"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pXcon_getposition" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *vecOut"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="NxPhysicsSDK"/>
+		<KeyWord name="NxScene"/>
+		<KeyWord name="physX_level_load" func="yes"/>
+		<KeyWord name="physX_ent_remove" func="yes">
+			<Overload retVal="void" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="exit_event" func="yes"/>
+		<KeyWord name="physX_close" func="yes"/>
+		<KeyWord name="physX_open" func="yes"/>
+
+		<!--ACKUSB_H-->
+		<KeyWord name="usb_open" func="yes">
+			<Overload retVal="var" >
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="usb_close" func="yes"/>
+		<KeyWord name="usb_out" func="yes">
+			<Overload retVal="var" >
+				<Param name="var data"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="usb_setdata64" func="yes">
+			<Overload retVal="var" >
+				<Param name="long addr"/>
+				<Param name="long hi"/>
+				<Param name="long lo"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="usb_error" func="yes">
+			<Overload retVal="char*"/>
+		</KeyWord>
+
+		<!--ACKWII_H-->
+		<KeyWord name="LED1"/>
+		<KeyWord name="LED2"/>
+		<KeyWord name="LED3"/>
+		<KeyWord name="LED4"/>
+		<KeyWord name="STICK"/>
+		<KeyWord name="IR"/>
+		<KeyWord name="IRPTR"/>
+		<KeyWord name="SHOULDER"/>
+		<KeyWord name="BOARD"/>
+		<KeyWord name="BUTTONS"/>
+		<KeyWord name="DPAD"/>
+		<KeyWord name="STATUS"/>
+		<KeyWord name="EVT"/>
+		<KeyWord name="WIIMOTE"/>
+		<KeyWord name="WIIMOTE"/>
+		<KeyWord name="wiimote_getdevices" func="yes">
+			<Overload retVal="var"/>
+		</KeyWord>
+		<KeyWord name="wiimote_connect" func="yes">
+			<Overload retVal="var" >
+				<Param name="var dev_index"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_disconnect" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_led" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="var led"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_vibration" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="var vib_on"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_status" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="void *buffer"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_ir" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="var ir_on"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_smoothfac" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="var fac"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_ir_sensitivity" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="var level"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_connected" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_nunchuk_connected" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_classic_connected" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_guitar_connected" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_balanceboard_connected" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_ir_active" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_vibration_active" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_battery" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_battery_raw" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<!--WII_DEBUG-->
+		<KeyWord name="wiimote_panel" func="yes">
+			<Overload retVal="void" >
+				<Param name="WIIMOTE* buffer"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_print" func="yes">
+			<Overload retVal="void" >
+				<Param name="var handle"/>
+				<Param name="WIIMOTE* buffer"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_debug" func="yes">
+			<Overload retVal="void" >
+				<Param name="WIIMOTE* buffer"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_move_irdot" func="yes">
+			<Overload retVal="void" >
+				<Param name="WIIMOTE* buffer"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_on" func="yes"/>
+		<KeyWord name="wiimote_off" func="yes"/>
+
+		<!--afuncs_h-->
+		<!--var math-->
+		<KeyWord name="ang" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sign" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="fraction" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="integer" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="floorv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="random" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="randomize" func="yes">
+			<Overload retVal="var"/>
+		</KeyWord>
+		<KeyWord name="random_seed" func="yes">
+			<Overload retVal="var" >
+				<Param name="var seed"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="absv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sinv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="cosv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="tanv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="asinv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="acosv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="atanv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="atan2v" func="yes">
+			<Overload retVal="var" >
+				<Param name="var a"/>
+				<Param name="var b"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="expv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="logv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="log10v" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sqrtv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="powv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+				<Param name="var y"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="maxv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+				<Param name="var y"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="minv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+				<Param name="var y"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="fsin" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+				<Param name="var f"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="fcos" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+				<Param name="var f"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ftan" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+				<Param name="var f"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="fasin" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+				<Param name="var f"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="facos" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+				<Param name="var f"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="fatan" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+				<Param name="var f"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="accelerate" func="yes">
+			<Overload retVal="var" >
+				<Param name="var *speed"/>
+				<Param name="var accel"/>
+				<Param name="var friction"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="clamp" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+				<Param name="var a"/>
+				<Param name="var b"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="cycle" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+				<Param name="var a"/>
+				<Param name="var b"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ifelse" func="yes">
+			<Overload retVal="var" >
+				<Param name="bool expression"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="smooth" func="yes">
+			<Overload retVal="var" >
+				<Param name="var *value"/>
+				<Param name="var factor"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="floatv" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="floatd" func="yes">
+			<Overload retVal="var" >
+				<Param name="var a"/>
+				<Param name="var b"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="floatr" func="yes">
+			<Overload retVal="var" >
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+
+		<!--var vector math-->
+		<KeyWord name="ang_add" func="yes">
+			<Overload retVal="ANGLE*" >
+				<Param name="ANGLE *angle1"/>
+				<Param name="ANGLE *angle2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ang_rotate" func="yes">
+			<Overload retVal="ANGLE*" >
+				<Param name="ANGLE *angle1"/>
+				<Param name="ANGLE *angle2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ang_diff" func="yes">
+			<Overload retVal="ANGLE*" >
+				<Param name="ANGLE *a"/>
+				<Param name="ANGLE *a1"/>
+				<Param name="ANGLE *a2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ang_for_axis" func="yes">
+			<Overload retVal="ANGLE*" >
+				<Param name="ANGLE *vAng"/>
+				<Param name="VECTOR *vAxis"/>
+				<Param name="var angle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ang_for_matrix" func="yes">
+			<Overload retVal="ANGLE*" >
+				<Param name="ANGLE *angle"/>
+				<Param name="float *matrix"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ang_to_matrix" func="yes">
+			<Overload retVal="float*" >
+				<Param name="ANGLE *angle"/>
+				<Param name="float *matrix"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_length" func="yes">
+			<Overload retVal="var" >
+				<Param name="VECTOR *vector"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_dist" func="yes">
+			<Overload retVal="var" >
+				<Param name="VECTOR *vector1"/>
+				<Param name="VECTOR *vector2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_cross" func="yes">
+			<Overload retVal="var" >
+				<Param name="VECTOR *vector"/>
+				<Param name="VECTOR *vector1"/>
+				<Param name="VECTOR *vector2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_dot" func="yes">
+			<Overload retVal="var" >
+				<Param name="VECTOR *vector1"/>
+				<Param name="VECTOR *vector2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_mul" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *v1"/>
+				<Param name="VECTOR *v2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_normalize" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+				<Param name="var length"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_accelerate" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *distance"/>
+				<Param name="VECTOR *speed"/>
+				<Param name="VECTOR *accel"/>
+				<Param name="var friction"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_bounce" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vRay"/>
+				<Param name="VECTOR *vNormal"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_add" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector1"/>
+				<Param name="VECTOR *vector2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_diff" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+				<Param name="VECTOR *vector1"/>
+				<Param name="VECTOR *vector2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_inverse" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_lerp" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *v"/>
+				<Param name="VECTOR *v1"/>
+				<Param name="VECTOR *v2"/>
+				<Param name="var f"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_rotate" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vDir"/>
+				<Param name="ANGLE *vAng"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_rotateback" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vDir"/>
+				<Param name="ANGLE *vAng"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_rotateaxis" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vDir"/>
+				<Param name="ANGLE *vAng"/>
+				<Param name="var angle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_scale" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+				<Param name="var factor"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_set" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector1"/>
+				<Param name="VECTOR *vector2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_fill" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_sub" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector1"/>
+				<Param name="VECTOR *vector2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_for_angle" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vec"/>
+				<Param name="ANGLE *ang"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_to_angle" func="yes">
+			<Overload retVal="var" >
+				<Param name="ANGLE *ang"/>
+				<Param name="VECTOR *dir"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_for_bone" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vec"/>
+				<Param name="ENTITY *ent"/>
+				<Param name="STRING *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ang_for_bone" func="yes">
+			<Overload retVal="ANGLE*" >
+				<Param name="ANGLE *ang"/>
+				<Param name="ENTITY *ent"/>
+				<Param name="STRING *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_for_normal" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+				<Param name="ENTITY *entity"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_for_vertex" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+				<Param name="ENTITY *entity"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_for_ent" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_to_ent" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_for_min" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vec"/>
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_for_max" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_for_mesh" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+				<Param name="ENTITY *entity"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_to_mesh" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vec"/>
+				<Param name="ENTITY *entity"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_for_uv" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+				<Param name="ENTITY *entity"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_to_uv" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+				<Param name="ENTITY *entity"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_for_screen" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vec"/>
+				<Param name="VIEW *view"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vec_to_screen" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+				<Param name="VIEW *view"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="rel_for_screen" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+				<Param name="VIEW *view"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="rel_to_screen" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="VECTOR *vector"/>
+				<Param name="VIEW *view"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="vector" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="var z"/>
+			</Overload>
+		</KeyWord>
+
+		<!--float 4x4 matrix math-->
+		<KeyWord name="mat_identity" func="yes">
+			<Overload retVal="float*" >
+				<Param name="float *matrix"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="mat_inverse" func="yes">
+			<Overload retVal="float*" >
+				<Param name="float *matrix1"/>
+				<Param name="float *matrix2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="mat_multiply" func="yes">
+			<Overload retVal="float*" >
+				<Param name="float *matrix1"/>
+				<Param name="float *matrix2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="mat_scale" func="yes">
+			<Overload retVal="float*" >
+				<Param name="float *matrix"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="var z"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="mat_set" func="yes">
+			<Overload retVal="float*" >
+				<Param name="float *matrix1"/>
+				<Param name="float *matrix2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="mat_transpose" func="yes">
+			<Overload retVal="float*" >
+				<Param name="float *matrix1"/>
+				<Param name="float *matrix2"/>
+			</Overload>
+		</KeyWord>
+
+		<!--string and char-->
+		<KeyWord name="str_create" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="char *content"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_createw" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="short *content"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_remove" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_cpy" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *to"/>
+				<Param name="char *from"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_cat" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *to"/>
+				<Param name="char *from"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_cat_num" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *to"/>
+				<Param name="char *from"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_printf" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *string1"/>
+				<Param name="char *string2"/>
+				<Param name="..."/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_clip" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *string"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_trunc" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *string"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_lwr" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_upr" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_cmp" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *string1"/>
+				<Param name="char *string2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_cmpi" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *string1"/>
+				<Param name="char *string2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_cmpni" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *string1"/>
+				<Param name="char *string2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_len" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_chr" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *string"/>
+				<Param name="var start"/>
+				<Param name="var char"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_setchr" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *string"/>
+				<Param name="var pos"/>
+				<Param name="var char"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_getchr" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *string"/>
+				<Param name="var pos"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_stri" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *content"/>
+				<Param name="char *search"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_for_asc" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *string"/>
+				<Param name="var num"/>
+				<Param name="var pos"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_to_asc" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_for_float" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *string"/>
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_for_int" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *string"/>
+				<Param name="long x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_for_num" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *string"/>
+				<Param name="var x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_to_float" func="yes">
+			<Overload retVal="double" >
+				<Param name="char *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_to_int" func="yes">
+			<Overload retVal="long" >
+				<Param name="char *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_to_num" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_cursor" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_width" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *string"/>
+				<Param name="FONT *font"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_for_entname" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *string"/>
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_for_entfile" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *string"/>
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_for_id" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *string"/>
+				<Param name="var client_id"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_replace" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *string"/>
+				<Param name="char *original"/>
+				<Param name="char *replacement"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_replaceall" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *string"/>
+				<Param name="char *original"/>
+				<Param name="char *replacement"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_cut" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *to"/>
+				<Param name="char *from"/>
+				<Param name="var start"/>
+				<Param name="var end"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_parse" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *to"/>
+				<Param name="char *from"/>
+				<Param name="var pos"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_parse_tail" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *to"/>
+				<Param name="char *from"/>
+				<Param name="char *tail"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_parse_head" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *to"/>
+				<Param name="char *from"/>
+				<Param name="char *head"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_rtrim" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *input"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_ltrim" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *input"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_trim" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *input"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="filename" func="yes">
+			<Overload retVal="OPENFILENAME*" >
+				<Param name="char *title"/>
+				<Param name="char *filter"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_dialog_open" func="yes">
+			<Overload retVal="char*" >
+				<Param name="char *title"/>
+				<Param name="char *filter"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_dialog_save" func="yes">
+			<Overload retVal="char*" >
+				<Param name="char *title"/>
+				<Param name="char *filter"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_dialog" func="yes">
+			<Overload retVal="char*" >
+				<Param name="char *title"/>
+				<Param name="char *filter"/>
+			</Overload>
+		</KeyWord>
+
+		<!--bitmap-->
+		<KeyWord name="bmap_create" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="char *filename"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_createblack" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="var width"/>
+				<Param name="var height"/>
+				<Param name="var format"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_createpart" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="char *filename"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="var width"/>
+				<Param name="var height"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_remove" func="yes">
+			<Overload retVal="void" >
+				<Param name="BMAP *bmap"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_for_entity" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var frame"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_for_screen" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="BMAP *bmap"/>
+				<Param name="var modify"/>
+				<Param name="var delay"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_for_buffer" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_for_texture" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="char *texname"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_preload" func="yes">
+			<Overload retVal="void*" >
+				<Param name="BMAP *bmap"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_purge" func="yes">
+			<Overload retVal="void*" >
+				<Param name="BMAP *bmap"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_load" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="BMAP *bmap"/>
+				<Param name="char *filename"/>
+				<Param name="var flags"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_save" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="BMAP *bmap"/>
+				<Param name="char *filename"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_to_alpha" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="BMAP *bmap"/>
+				<Param name="var percent"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_to_cubemap" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="BMAP *bmap"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_to_mipmap" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="BMAP *bmap"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_to_normals" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="BMAP *bmap"/>
+				<Param name="var factor"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_to_uv" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="BMAP *bmap"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_to_format" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="BMAP *bmap"/>
+				<Param name="var format"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_height" func="yes">
+			<Overload retVal="var" >
+				<Param name="BMAP *bmap"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_width" func="yes">
+			<Overload retVal="var" >
+				<Param name="BMAP *bmap"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_format" func="yes">
+			<Overload retVal="var" >
+				<Param name="BMAP *bmap"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_lock" func="yes">
+			<Overload retVal="var" >
+				<Param name="BMAP *bmap"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_unlock" func="yes">
+			<Overload retVal="var" >
+				<Param name="BMAP *bmap"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_blit" func="yes">
+			<Overload retVal="var" >
+				<Param name="BMAP *bDest"/>
+				<Param name="BMAP *bSrc"/>
+				<Param name="VECTOR *vPos"/>
+				<Param name="VECTOR *vSize"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_blitpart" func="yes">
+			<Overload retVal="var" >
+				<Param name="BMAP *bDest"/>
+				<Param name="BMAP *bSrc"/>
+				<Param name="VECTOR *vDestPos"/>
+				<Param name="VECTOR *vDestSize"/>
+				<Param name="VECTOR *vSrcPos"/>
+				<Param name="VECTOR *vSrcSize"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_fill" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="BMAP *bmap"/>
+				<Param name="COLOR *color"/>
+				<Param name="var alpha"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_process" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="BMAP *bDest"/>
+				<Param name="BMAP *bSrc"/>
+				<Param name="MATERIAL *mtl"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_rendertarget" func="yes">
+			<Overload retVal="var" >
+				<Param name="BMAP *bmap"/>
+				<Param name="var num"/>
+				<Param name="var face"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_zbuffer" func="yes">
+			<Overload retVal="var" >
+				<Param name="BMAP *bmap"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pixel_for_bmap" func="yes">
+			<Overload retVal="var" >
+				<Param name="BMAP *bmap"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pixel_to_bmap" func="yes">
+			<Overload retVal="var" >
+				<Param name="BMAP *bmap"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="var pixel"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pixel_for_vec" func="yes">
+			<Overload retVal="var" >
+				<Param name="COLOR *color"/>
+				<Param name="var alpha"/>
+				<Param name="var format"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pixel_to_vec" func="yes">
+			<Overload retVal="COLOR*" >
+				<Param name="COLOR *color"/>
+				<Param name="var *alpha"/>
+				<Param name="var format"/>
+				<Param name="var pixel"/>
+			</Overload>
+		</KeyWord>
+
+		<!--multimedia & movies-->
+		<KeyWord name="cd_play" func="yes">
+			<Overload retVal="var" >
+				<Param name="var from"/>
+				<Param name="var to"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="cd_pause" func="yes">
+			<Overload retVal="var"/>
+		</KeyWord>
+		<KeyWord name="cd_start" func="yes">
+			<Overload retVal="var"/>
+		</KeyWord>
+		<KeyWord name="cd_track" func="yes">
+			<Overload retVal="var"/>
+		</KeyWord>
+		<KeyWord name="media_play" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *filename"/>
+				<Param name="BMAP *target"/>
+				<Param name="var volume"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="media_loop" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *filename"/>
+				<Param name="BMAP *target"/>
+				<Param name="var volume"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="media_pause" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="media_playing" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="media_start" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="media_stop" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="media_tune" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="var volume"/>
+				<Param name="var pitch"/>
+				<Param name="var balance"/>
+			</Overload>
+		</KeyWord>
+
+		<!--sound-->
+		<KeyWord name="snd_create" func="yes">
+			<Overload retVal="SOUND*" >
+				<Param name="char *filename"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="snd_remove" func="yes">
+			<Overload retVal="var" >
+				<Param name="SOUND *sound"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="snd_buffer" func="yes">
+			<Overload retVal="var" >
+				<Param name="SOUND *sound"/>
+				<Param name="void **pDesc"/>
+				<Param name="void ***ppSample"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="snd_play" func="yes">
+			<Overload retVal="var" >
+				<Param name="SOUND *sound"/>
+				<Param name="var Volume"/>
+				<Param name="var Balance"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="snd_loop" func="yes">
+			<Overload retVal="var" >
+				<Param name="SOUND *sound"/>
+				<Param name="var Volume"/>
+				<Param name="var Balance"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="snd_playing" func="yes">
+			<Overload retVal="var" >
+				<Param name="var Handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="snd_pause" func="yes">
+			<Overload retVal="var" >
+				<Param name="var Handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="snd_start" func="yes">
+			<Overload retVal="var" >
+				<Param name="var Handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="snd_stop" func="yes">
+			<Overload retVal="var" >
+				<Param name="var Handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="snd_tune" func="yes">
+			<Overload retVal="var" >
+				<Param name="var Handle"/>
+				<Param name="var Volume"/>
+				<Param name="var Freqency"/>
+				<Param name="var Balance"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="snd_add" func="yes">
+			<Overload retVal="var" >
+				<Param name="var Handle"/>
+				<Param name="var Offset"/>
+				<Param name="void *Sample"/>
+				<Param name="var Length"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="snd_stopall" func="yes">
+			<Overload retVal="var" >
+				<Param name="var Mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_playloop" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="SOUND *sound"/>
+				<Param name="var Volume"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_playloop2" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="SOUND *sound"/>
+				<Param name="var Volume"/>
+				<Param name="var Range"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_playsound" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="SOUND *sound"/>
+				<Param name="var Volume"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_playsound2" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="SOUND *sound"/>
+				<Param name="var Volume"/>
+				<Param name="var Range"/>
+			</Overload>
+		</KeyWord>
+
+		<!--collision detection-->
+		<KeyWord name="c_intersect" func="yes">
+			<Overload retVal="var" >
+				<Param name="VECTOR *min1"/>
+				<Param name="VECTOR *max1"/>
+				<Param name="VECTOR *vel1"/>
+				<Param name="VECTOR *min2"/>
+				<Param name="VECTOR *max2"/>
+				<Param name="VECTOR *vel2"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="c_content" func="yes">
+			<Overload retVal="var" >
+				<Param name="VECTOR *pos"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="c_scan" func="yes">
+			<Overload retVal="var" >
+				<Param name="VECTOR *pos"/>
+				<Param name="ANGLE *ang"/>
+				<Param name="VECTOR *sector"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="c_trace" func="yes">
+			<Overload retVal="var" >
+				<Param name="VECTOR *from"/>
+				<Param name="VECTOR *to"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="c_move" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *reldist"/>
+				<Param name="VECTOR *absdist"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="c_rotate" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="ANGLE *angle"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="c_setminmax" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="c_updatehull" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var frame"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="c_ignore" func="yes">
+			<Overload retVal="var" >
+				<Param name="var group1"/>
+				<Param name="..."/>
+				<Param name="0"/>
+			</Overload>
+		</KeyWord>
+
+		<!--effects, particles, materials-->
+		<KeyWord name="mtl_create" func="yes">
+			<Overload retVal=" MATERIAL*"/>
+		</KeyWord>
+		<KeyWord name="mtl_remove" func="yes">
+			<Overload retVal="void" >
+				<Param name="MATERIAL *mtl"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="effect" func="yes">
+			<Overload retVal="var" >
+				<Param name="Function"/>
+				<Param name="var number"/>
+				<Param name="VECTOR *pos"/>
+				<Param name="VECTOR *vel"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="effect_layer" func="yes">
+			<Overload retVal="var" >
+				<Param name="Function"/>
+				<Param name="var number"/>
+				<Param name="VECTOR *pos"/>
+				<Param name="VECTOR *vel"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="effect_local" func="yes">
+			<Overload retVal="var" >
+				<Param name="Function"/>
+				<Param name="var number"/>
+				<Param name="VECTOR *pos"/>
+				<Param name="VECTOR *vel"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="effect_cpy" func="yes">
+			<Overload retVal="void*" >
+				<Param name="MATERIAL *to"/>
+				<Param name="MATERIAL *from"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="effect_load" func="yes">
+			<Overload retVal="void*" >
+				<Param name="MATERIAL *mtl"/>
+				<Param name="char *filename"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="mat_effect" func="yes">
+			<Overload retVal="var" >
+				<Param name="float *matrix"/>
+			</Overload>
+		</KeyWord>
+
+		<!--entity-->
+		<KeyWord name="ent_create" func="yes">
+			<Overload retVal="ENTITY*" >
+				<Param name="char *filename"/>
+				<Param name="VECTOR *position"/>
+				<Param name="Function"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_createlocal" func="yes">
+			<Overload retVal="ENTITY*" >
+				<Param name="char *filename"/>
+				<Param name="VECTOR *position"/>
+				<Param name="Function"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_createlayer" func="yes">
+			<Overload retVal="ENTITY*" >
+				<Param name="char *filename"/>
+				<Param name="var flags2"/>
+				<Param name="var layer"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_createterrain" func="yes">
+			<Overload retVal="ENTITY*" >
+				<Param name="BMAP *skin"/>
+				<Param name="VECTOR *position"/>
+				<Param name="var nx"/>
+				<Param name="var ny"/>
+				<Param name="var size"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_next" func="yes">
+			<Overload retVal="ENTITY*" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_nextlight" func="yes">
+			<Overload retVal="ENTITY*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_nextvertex" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *pos"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_pvs" func="yes">
+			<Overload retVal="ENTITY*" >
+				<Param name="var num"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_for_name" func="yes">
+			<Overload retVal="ENTITY*" >
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_for_file" func="yes">
+			<Overload retVal="ENTITY*" >
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_mesh" func="yes">
+			<Overload retVal="void*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_getmesh" func="yes">
+			<Overload retVal="void*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var num"/>
+				<Param name="var lod"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_setmesh" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="void *mesh"/>
+				<Param name="var num"/>
+				<Param name="var lod"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_buffers" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var num"/>
+				<Param name="var lod"/>
+				<Param name="void **ppVerts"/>
+				<Param name="void **ppTris"/>
+				<Param name="void **ppAttribs"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_getvertex" func="yes">
+			<Overload retVal="CONTACT*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="CONTACT *c"/>
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_setvertex" func="yes">
+			<Overload retVal="CONTACT*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="CONTACT *c"/>
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_decal" func="yes">
+			<Overload retVal="PARTICLE*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="BMAP *bmp"/>
+				<Param name="var size"/>
+				<Param name="var angle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_getdecal" func="yes">
+			<Overload retVal="PARTICLE*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var mesh"/>
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_clone" func="yes">
+			<Overload retVal="ENTITY*" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_cloneskin" func="yes">
+			<Overload retVal="ENTITY*" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_morph" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="STRING *filename"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_morphskin" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="STRING *filename"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_mtlset" func="yes">
+			<Overload retVal="MATERIAL*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="MATERIAL *mtl"/>
+				<Param name="var skin"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_getskin" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var skin"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_setskin" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="BMAP *bmap"/>
+				<Param name="var skin"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_preload" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_purge" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_reload" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_remove" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_animate" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="char *scenename"/>
+				<Param name="var percent"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_animatefrom" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="ENTITY *source"/>
+				<Param name="char *scenename"/>
+				<Param name="var percent"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_blend" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *scenename"/>
+				<Param name="var anim_percent"/>
+				<Param name="var blend_mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_blendframe" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="ENTITY *anim"/>
+				<Param name="STRING *scenename"/>
+				<Param name="var anim_percent"/>
+				<Param name="var blend_mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_blendpose" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var target"/>
+				<Param name="var source"/>
+				<Param name="var percent"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_bonename" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="STRING *bonename"/>
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_bonereset_all" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_bonereset" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="STRING *bonename"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_bonereset_branch" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="STRING *bonename"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_bonerotate" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="STRING *bonename"/>
+				<Param name="VECTOR *angle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_bonerotate_parent" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="STRING *bonename"/>
+				<Param name="VECTOR *angle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_bonemove" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="STRING *bonename"/>
+				<Param name="VECTOR *offset"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_bonescale" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="STRING *bonename"/>
+				<Param name="VECTOR *scale"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_bonehandle" func="yes">
+			<Overload retVal="long" >
+				<Param name="ENTITY *entity"/>
+				<Param name="STRING *bonename"/>
+				<Param name="var index"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_boneparent" func="yes">
+			<Overload retVal="long" >
+				<Param name="ENTITY *entity"/>
+				<Param name="STRING *bonename"/>
+				<Param name="var index"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_fixnormals" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var frame"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_type" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_status" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_frames" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_skins" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_bones" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_vertices" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+
+		<!--pathfinding-->
+		<KeyWord name="path_create" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var nodes"/>
+				<Param name="var edges"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="path_set" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="path_next" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="path_getedge" func="yes">
+			<Overload retVal="var*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var node"/>
+				<Param name="var edge"/>
+				<Param name="var *skills"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="path_setedge" func="yes">
+			<Overload retVal="var*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var node"/>
+				<Param name="var edge"/>
+				<Param name="var *skills"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="path_getnode" func="yes">
+			<Overload retVal="var*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var node"/>
+				<Param name="VECTOR *pos"/>
+				<Param name="var *skills"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="path_setnode" func="yes">
+			<Overload retVal="var*" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var node"/>
+				<Param name="VECTOR *pos"/>
+				<Param name="var *skills"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="path_nextnode" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var node"/>
+				<Param name="var edge"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="path_scan" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *pos"/>
+				<Param name="ANGLE *dir"/>
+				<Param name="VECTOR *sector"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="path_scanpath" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *pos"/>
+				<Param name="ANGLE *dir"/>
+				<Param name="VECTOR *sector"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="path_scannode" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="path_length" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="path_spline" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="VECTOR *pos"/>
+				<Param name="var dist"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="region_check" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *name"/>
+				<Param name="VECTOR *vMin"/>
+				<Param name="VECTOR *vMax"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="region_create" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *name"/>
+				<Param name="VECTOR *vMin"/>
+				<Param name="VECTOR *vMax"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="region_find" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *name"/>
+				<Param name="VECTOR *pos"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="region_set" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *name"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="region_get" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *name"/>
+				<Param name="var num"/>
+				<Param name="VECTOR *vMin"/>
+				<Param name="VECTOR *vMax"/>
+			</Overload>
+		</KeyWord>
+
+		<!--file i/o-->
+		<KeyWord name="file_cpy" func="yes">
+			<Overload retVal="char*" >
+				<Param name="char *name_to"/>
+				<Param name="char *name_from"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_rename" func="yes">
+			<Overload retVal="char*" >
+				<Param name="char *name_old"/>
+				<Param name="char *name_new"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_for_screen" func="yes">
+			<Overload retVal="char*" >
+				<Param name="char *name"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_date" func="yes">
+			<Overload retVal="long" >
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_delete" func="yes">
+			<Overload retVal="char*" >
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_exists" func="yes">
+			<Overload retVal="void*" >
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_load" func="yes">
+			<Overload retVal="void*" >
+				<Param name="char *name"/>
+				<Param name="void *buffer"/>
+				<Param name="long *size"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_save" func="yes">
+			<Overload retVal="void*" >
+				<Param name="char *name"/>
+				<Param name="void *buffer"/>
+				<Param name="long *size"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_open_append" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_open_game" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_open_read" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_open_write" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_close" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_length" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_find" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="char *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_seek" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="var offset"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_asc_read" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_asc_write" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="var byte"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_chr_read" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="STRING *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_str_read" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="STRING *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_str_readto" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="STRING *string"/>
+				<Param name="char *delimiter"/>
+				<Param name="var length"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_str_readtow" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="STRING *string"/>
+				<Param name="char *delimiter"/>
+				<Param name="var length"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_str_write" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="char *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_str_writeto" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="char *string"/>
+				<Param name="var length"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_var_read" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="file_var_write" func="yes">
+			<Overload retVal="var" >
+				<Param name="var handle"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+
+		<!--keys-->
+		<KeyWord name="key_for_str" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="str_for_key" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="STRING *string"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="key_pressed" func="yes">
+			<Overload retVal="var" >
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="key_set" func="yes">
+			<Overload retVal="var" >
+				<Param name="var number"/>
+				<Param name="Function"/>
+			</Overload>
+		</KeyWord>
+
+		<!--game & video-->
+		<KeyWord name="level_load" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *filename"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="level_mark" func="yes">
+			<Overload retVal="void"/>
+		</KeyWord>
+		<KeyWord name="level_free" func="yes">
+			<Overload retVal="void"/>
+		</KeyWord>
+		<KeyWord name="game_save" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *filename"/>
+				<Param name="var number"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="game_load" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *filename"/>
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sys_active" func="yes">
+			<Overload retVal="long" >
+				<Param name="char *title"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sys_exit" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *message"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sys_message" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *message"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sys_metrics" func="yes">
+			<Overload retVal="var" >
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sys_record" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *filename"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sys_replay" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *filename"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sys_trial" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *section"/>
+				<Param name="char *name"/>
+				<Param name="var days"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sys_setstr" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *section"/>
+				<Param name="char *name"/>
+				<Param name="char *str"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sys_getstr" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="char *section"/>
+				<Param name="char *name"/>
+				<Param name="char *str"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sys_setvar" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *section"/>
+				<Param name="char *name"/>
+				<Param name="var value"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sys_getvar" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *section"/>
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="video_set" func="yes">
+			<Overload retVal="var" >
+				<Param name="var width"/>
+				<Param name="var height"/>
+				<Param name="var depth"/>
+				<Param name="var screen"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="video_switch" func="yes">
+			<Overload retVal="var" >
+				<Param name="var mode"/>
+				<Param name="var depth"/>
+				<Param name="var screen"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="video_window" func="yes">
+			<Overload retVal="var" >
+				<Param name="VECTOR *pos"/>
+				<Param name="VECTOR *size"/>
+				<Param name="var style"/>
+				<Param name="char *title"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="video_border" func="yes">
+			<Overload retVal="var" >
+				<Param name="BMAP *border"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="var dx"/>
+				<Param name="var dy"/>
+			</Overload>
+		</KeyWord>
+
+		<!--panels, views, text-->
+		<KeyWord name="pan_create" func="yes">
+			<Overload retVal="PANEL*" >
+				<Param name="char *content"/>
+				<Param name="var layer"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pan_remove" func="yes">
+			<Overload retVal="var" >
+				<Param name="PANEL *pan"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pan_setbmap" func="yes">
+			<Overload retVal="var" >
+				<Param name="PANEL *pan"/>
+				<Param name="var type"/>
+				<Param name="var number"/>
+				<Param name="BMAP *bmaps"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pan_setcolor" func="yes">
+			<Overload retVal="var" >
+				<Param name="PANEL *pan"/>
+				<Param name="var type"/>
+				<Param name="var number"/>
+				<Param name="COLOR *color"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pan_setevent" func="yes">
+			<Overload retVal="var" >
+				<Param name="PANEL *pan"/>
+				<Param name="var type"/>
+				<Param name="var number"/>
+				<Param name="Function"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pan_setpos" func="yes">
+			<Overload retVal="var" >
+				<Param name="PANEL *pan"/>
+				<Param name="var type"/>
+				<Param name="var number"/>
+				<Param name="VECTOR *xy"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pan_getpos" func="yes">
+			<Overload retVal="var" >
+				<Param name="PANEL *pan"/>
+				<Param name="var type"/>
+				<Param name="var number"/>
+				<Param name="VECTOR *xy"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pan_setvar" func="yes">
+			<Overload retVal="var" >
+				<Param name="PANEL *pan"/>
+				<Param name="var type"/>
+				<Param name="var number"/>
+				<Param name="var *v"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pan_setbutton" func="yes">
+			<Overload retVal="var" >
+				<Param name="PANEL *pan"/>
+				<Param name="var num"/>
+				<Param name="var type"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="BMAP *bmapOn"/>
+				<Param name="BMAP *bmapOff"/>
+				<Param name="BMAP *bmapOver"/>
+				<Param name="BMAP *bmapOverOff"/>
+				<Param name="FunctionClick"/>
+				<Param name="FunctionLeave"/>
+				<Param name="FunctionOver"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pan_setdigits" func="yes">
+			<Overload retVal="var" >
+				<Param name="PANEL *pan"/>
+				<Param name="var num"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="char *format"/>
+				<Param name="FONT *font"/>
+				<Param name="var factor"/>
+				<Param name="var *pv"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pan_setneedle" func="yes">
+			<Overload retVal="var" >
+				<Param name="PANEL *pan"/>
+				<Param name="var num"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="BMAP* bmap"/>
+				<Param name="var cx"/>
+				<Param name="var cy"/>
+				<Param name="var angle"/>
+				<Param name="var min"/>
+				<Param name="var max"/>
+				<Param name="var *pv"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pan_setslider" func="yes">
+			<Overload retVal="var" >
+				<Param name="PANEL *pan"/>
+				<Param name="var num"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="BMAP *bmapBg"/>
+				<Param name="BMAP *bmapKnob"/>
+				<Param name="var min"/>
+				<Param name="var max"/>
+				<Param name="var *pvs"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pan_setstring" func="yes">
+			<Overload retVal="var" >
+				<Param name="PANEL *pan"/>
+				<Param name="var num"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="FONT *font"/>
+				<Param name="char *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pan_setwindow" func="yes">
+			<Overload retVal="var" >
+				<Param name="PANEL *pan"/>
+				<Param name="var num"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="var dx"/>
+				<Param name="var dy"/>
+				<Param name="BMAP *bmap"/>
+				<Param name="var *px"/>
+				<Param name="var *py"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="digits_set" func="yes">
+			<Overload retVal="var" >
+				<Param name="PANEL *pan"/>
+				<Param name="var number"/>
+				<Param name="var *digit"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="button_state" func="yes">
+			<Overload retVal="var" >
+				<Param name="PANEL *pan"/>
+				<Param name="var number"/>
+				<Param name="var state"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="layer_sort" func="yes">
+			<Overload retVal="var" >
+				<Param name="void *element"/>
+				<Param name="var layer"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="txt_create" func="yes">
+			<Overload retVal="TEXT*" >
+				<Param name="var strings"/>
+				<Param name="var layer"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="txt_remove" func="yes">
+			<Overload retVal="void" >
+				<Param name="TEXT *txt"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="txt_for_dir" func="yes">
+			<Overload retVal="var" >
+				<Param name="TEXT *txt"/>
+				<Param name="char *path"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="txt_sort" func="yes">
+			<Overload retVal="void" >
+				<Param name="TEXT *txt"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="txt_load" func="yes">
+			<Overload retVal="var" >
+				<Param name="TEXT *txt"/>
+				<Param name="char *filename"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="txt_loadw" func="yes">
+			<Overload retVal="var" >
+				<Param name="TEXT *txt"/>
+				<Param name="char *filename"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="txt_addstring" func="yes">
+			<Overload retVal="var" >
+				<Param name="TEXT *txt"/>
+				<Param name="char *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="txt_setinvisible" func="yes">
+			<Overload retVal="var" >
+				<Param name="TEXT *txt"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="txt_setvisible" func="yes">
+			<Overload retVal="var" >
+				<Param name="TEXT *txt"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="txt_str" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="TEXT *txt"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="font_create" func="yes">
+			<Overload retVal="FONT*" >
+				<Param name="char *content"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="font_remove" func="yes">
+			<Overload retVal="void" >
+				<Param name="FONT *font"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="view_create" func="yes">
+			<Overload retVal="VIEW*" >
+				<Param name="var layer"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="view_check" func="yes">
+			<Overload retVal="var" >
+				<Param name="VIEW *view"/>
+				<Param name="VECTOR *vMin"/>
+				<Param name="VECTOR *vMax"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="view_to_light" func="yes">
+			<Overload retVal="var" >
+				<Param name="VIEW *view"/>
+				<Param name="var num"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="view_to_matrix" func="yes">
+			<Overload retVal="float*" >
+				<Param name="VIEW *view"/>
+				<Param name="float *matView"/>
+				<Param name="float *matProj"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="view_to_split" func="yes">
+			<Overload retVal="float*" >
+				<Param name="VIEW *view"/>
+				<Param name="var split1"/>
+				<Param name="var split2"/>
+				<Param name="VIEW *split"/>
+				<Param name="float *matSplit"/>
+			</Overload>
+		</KeyWord>
+
+		<!--draw-->
+		<KeyWord name="draw_begin" func="yes">
+			<Overload retVal="void*"/>
+		</KeyWord>
+		<KeyWord name="draw_line" func="yes">
+			<Overload retVal="var" >
+				<Param name="VECTOR *xy"/>
+				<Param name="COLOR *color"/>
+				<Param name="var alpha"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="draw_line3d" func="yes">
+			<Overload retVal="var" >
+				<Param name="VECTOR *xyz"/>
+				<Param name="COLOR *color"/>
+				<Param name="var alpha"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="draw_box3d" func="yes">
+			<Overload retVal="var" >
+				<Param name="VECTOR *vMin"/>
+				<Param name="VECTOR *vMax"/>
+				<Param name="COLOR *color"/>
+				<Param name="var alpha"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="draw_obj" func="yes">
+			<Overload retVal="var" >
+				<Param name="void *ptr"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="draw_point3d" func="yes">
+			<Overload retVal="var" >
+				<Param name="VECTOR *vPos"/>
+				<Param name="COLOR *color"/>
+				<Param name="var alpha"/>
+				<Param name="var size"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="draw_quad" func="yes">
+			<Overload retVal="var" >
+				<Param name="BMAP *bmap"/>
+				<Param name="VECTOR *vPos"/>
+				<Param name="VECTOR *vOffset"/>
+				<Param name="VECTOR *vSize"/>
+				<Param name="VECTOR *vScale"/>
+				<Param name="COLOR *vColor"/>
+				<Param name="var alpha"/>
+				<Param name="var angle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="draw_text" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *text"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="COLOR *color"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="draw_textmode" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *fontname"/>
+				<Param name="var mode"/>
+				<Param name="var height"/>
+				<Param name="var alpha"/>
+			</Overload>
+		</KeyWord>
+
+		<!--network-->
+		<KeyWord name="proc_client" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="Function"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="proc_local" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="Function"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="send_data_to" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="void *buffer"/>
+				<Param name="var size"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="send_data_id" func="yes">
+			<Overload retVal="var" >
+				<Param name="var client_id"/>
+				<Param name="void *buffer"/>
+				<Param name="var size"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="send_skill" func="yes">
+			<Overload retVal="var" >
+				<Param name="var *skill"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="send_skill_to" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="var *skill"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="send_skill_id" func="yes">
+			<Overload retVal="var" >
+				<Param name="var client_id"/>
+				<Param name="var *skill"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="send_string" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="send_string_to" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="STRING *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="send_string_id" func="yes">
+			<Overload retVal="var" >
+				<Param name="var client_id"/>
+				<Param name="STRING *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="send_var" func="yes">
+			<Overload retVal="var" >
+				<Param name="void *addr"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="send_var_to" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+				<Param name="void *addr"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="send_var_id" func="yes">
+			<Overload retVal="var" >
+				<Param name="var client_id"/>
+				<Param name="void *addr"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="session_close" func="yes">
+			<Overload retVal="void"/>
+		</KeyWord>
+		<KeyWord name="session_connect" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *sessionname"/>
+				<Param name="char *hostname"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="session_open" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *sessionname"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="client_drop" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="client_drop_id" func="yes">
+			<Overload retVal="var" >
+				<Param name="var client_id"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="client_find" func="yes">
+			<Overload retVal="var" >
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_sendnow" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="socket_connect" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *IP"/>
+				<Param name="var port"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="socket_select" func="yes">
+			<Overload retVal="var" >
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="socket_receive" func="yes">
+			<Overload retVal="var" >
+				<Param name="void *buffer"/>
+				<Param name="var size"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="socket_send" func="yes">
+			<Overload retVal="var" >
+				<Param name="void *buffer"/>
+				<Param name="var size"/>
+			</Overload>
+		</KeyWord>
+
+		<!--diagnostics-->
+		<KeyWord name="beep" func="yes">
+			<Overload retVal="var"/>
+		</KeyWord>
+		<KeyWord name="diag" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *text"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="diag_var" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *format"/>
+				<Param name="var value"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="diag_frame" func="yes">
+			<Overload retVal="var" >
+				<Param name="var *value"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="diag_status" func="yes">
+			<Overload retVal="var"/>
+		</KeyWord>
+		<KeyWord name="error" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *text"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="timer" func="yes">
+			<Overload retVal="var"/>
+		</KeyWord>
+		<KeyWord name="dtimer" func="yes">
+			<Overload retVal="double"/>
+		</KeyWord>
+		<KeyWord name="breaks" func="yes">
+			<Overload retVal="var"/>
+		</KeyWord>
+
+		<!--input/output-->
+		<KeyWord name="port_in" func="yes">
+			<Overload retVal="var" >
+				<Param name="var port"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="port_out" func="yes">
+			<Overload retVal="var" >
+				<Param name="var port"/>
+				<Param name="var data"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="wiimote_handle" func="yes">
+			<Overload retVal="var" >
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="input_init" func="yes">
+			<Overload retVal="var" >
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+
+		<!--misc-->
+		<KeyWord name="exec" func="yes">
+			<Overload retVal="var" >
+				<Param name="char* program"/>
+				<Param name="char *cmdline"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="exec_wait" func="yes">
+			<Overload retVal="var" >
+				<Param name="char* program"/>
+				<Param name="char *cmdline"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="proc_kill" func="yes">
+			<Overload retVal="var" >
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="proc_kill2" func="yes">
+			<Overload retVal="var" >
+				<Param name="Function"/>
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="proc_status" func="yes">
+			<Overload retVal="var" >
+				<Param name="Function"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="proc_status2" func="yes">
+			<Overload retVal="var" >
+				<Param name="Function"/>
+				<Param name="ENTITY *entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="execute" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *command"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="var_for_name" func="yes">
+			<Overload retVal="void*" >
+				<Param name="char* name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ptr_first" func="yes">
+			<Overload retVal="void*" >
+				<Param name="void* object"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ptr_remove" func="yes">
+			<Overload retVal="void*" >
+				<Param name="void* object"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ptr_for_handle" func="yes">
+			<Overload retVal="void*" >
+				<Param name="var handle"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="handle" func="yes">
+			<Overload retVal="var" >
+				<Param name="void* object"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sys_malloc" func="yes">
+			<Overload retVal="void*" >
+				<Param name="long size"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sys_nxalloc" func="yes">
+			<Overload retVal="void*" >
+				<Param name="long size"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sys_free" func="yes">
+			<Overload retVal="void" >
+				<Param name="void* ptr"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sys_marker" func="yes">
+			<Overload retVal="void*" >
+				<Param name="char* mark"/>
+			</Overload>
+		</KeyWord>
+
+		<!--conversion and utility functions for the DLL interface-->
+		<KeyWord name="_chr" func="yes">
+			<Overload retVal="char*" >
+				<Param name="STRING *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="_str" func="yes">
+			<Overload retVal="STRING*" >
+				<Param name="char *string"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="_vec" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="float x"/>
+				<Param name="float y"/>
+				<Param name="float z"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="add_buffer" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *name"/>
+				<Param name="void *buffer"/>
+				<Param name="long size"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="add_folder" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *pathname"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="add_resource" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *content"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="add_new" func="yes">
+			<Overload retVal="var"/>
+		</KeyWord>
+		<KeyWord name="add_struct" func="yes">
+			<Overload retVal="var" >
+				<Param name="void *data"/>
+				<Param name="long size"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_getobj" func="yes">
+			<Overload retVal="long" >
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_getvar" func="yes">
+			<Overload retVal="void*" >
+				<Param name="char *name"/>
+				<Param name="long *type"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="VAR_STRUCT"/>
+		<KeyWord name="VAR_CHAR"/>
+		<KeyWord name="VAR_SHORT"/>
+		<KeyWord name="VAR_FIXED"/>
+		<KeyWord name="VAR_LONG"/>
+		<KeyWord name="VAR_FLOAT"/>
+		<KeyWord name="VAR_DOUBLE"/>
+		<KeyWord name="VAR_POINTER"/>
+		<KeyWord name="engine_getvarinfo" func="yes">
+			<Overload retVal="long" >
+				<Param name="void* address"/>
+				<Param name="char *name"/>
+				<Param name="char *structname"/>
+				<Param name="long *offset"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_getfunc" func="yes">
+			<Overload retVal="long" >
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_getscript" func="yes">
+			<Overload retVal="long" >
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_getscriptinfo" func="yes">
+			<Overload retVal="long" >
+				<Param name="void *address"/>
+				<Param name="char **name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_gettaskinfo" func="yes">
+			<Overload retVal="long" >
+				<Param name="long num"/>
+				<Param name="char **name"/>
+				<Param name="ENTITY **me_entity"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_callname4" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *name"/>
+				<Param name="long p1"/>
+				<Param name="long p2"/>
+				<Param name="long p3"/>
+				<Param name="long p4"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_callscript4" func="yes">
+			<Overload retVal="var" >
+				<Param name="long address"/>
+				<Param name="long p1"/>
+				<Param name="long p2"/>
+				<Param name="long p3"/>
+				<Param name="long p4"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_debugposition" func="yes">
+			<Overload retVal="var" >
+				<Param name="char **scriptname"/>
+				<Param name="long *offset"/>
+				<Param name="long *line"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_debugbreakpoint" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *scriptname"/>
+				<Param name="long line"/>
+				<Param name="long on"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_debugstep" func="yes">
+			<Overload retVal="long" >
+				<Param name="long mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_status" func="yes">
+			<Overload retVal="long" >
+				<Param name="long code"/>
+			</Overload>
+		</KeyWord>
+
+		<!--afuncs_dll_h-->
+		<KeyWord name="engine_bind" func="yes">
+			<Overload retVal="long" >
+				<Param name="void"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_callscript" func="yes">
+			<Overload retVal="var" >
+				<Param name="long address"/>
+				<Param name="long p1=0"/>
+				<Param name="long p2=0"/>
+				<Param name="long p3=0"/>
+				<Param name="long p4=0"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_open" func="yes">
+			<Overload retVal="ENGINE_VARS*" >
+				<Param name="char *commandline"/>
+				<Param name="DWORD callback = 0"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_frame" func="yes">
+			<Overload retVal="long" >
+				<Param name="void"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="engine_close" func="yes">
+			<Overload retVal="long" >
+				<Param name="void"/>
+			</Overload>
+		</KeyWord>
+
+		<!--atypes_h-->
+		<KeyWord name="ON"/>
+		<KeyWord name="OFF"/>
+
+		<!--entity flags-->
+		<KeyWord name="FLAG1"/>
+		<KeyWord name="FLAG2"/>
+		<KeyWord name="FLAG3"/>
+		<KeyWord name="FLAG4"/>
+		<KeyWord name="FLAG5"/>
+		<KeyWord name="FLAG6"/>
+		<KeyWord name="FLAG7"/>
+		<KeyWord name="FLAG8"/>
+		<KeyWord name="INVISIBLE"/>
+		<KeyWord name="PASSABLE"/>
+		<KeyWord name="TRANSLUCENT"/>
+		<KeyWord name="OVERLAY"/>
+		<KeyWord name="SPOTLIGHT"/>
+		<KeyWord name="ZNEAR"/>
+		<KeyWord name="NOFILTER"/>
+		<KeyWord name="UNLIT"/>
+		<KeyWord name="SHADOW"/>
+		<KeyWord name="LIGHT"/>
+		<KeyWord name="NOFOG"/>
+		<KeyWord name="BRIGHT"/>
+		<KeyWord name="DECAL"/>
+		<KeyWord name="METAL"/>
+		<KeyWord name="CAST"/>
+		<KeyWord name="POLYGON"/>
+
+		<!--entity nosend flags-->
+		<KeyWord name="NOSEND_TYPE"/>
+		<KeyWord name="NOSEND_SCALE"/>
+		<KeyWord name="NOSEND_ORIGIN"/>
+		<KeyWord name="NOSEND_ANGLES"/>
+		<KeyWord name="NOSEND_FRAME"/>
+		<KeyWord name="NOSEND_SKIN"/>
+		<KeyWord name="NOSEND_FLAGS"/>
+		<KeyWord name="NOSEND_AMBIENT"/>
+		<KeyWord name="NOSEND_ALPHA"/>
+		<KeyWord name="NOSEND_LIGHT"/>
+		<KeyWord name="NOSEND_COLOR"/>
+		<KeyWord name="NOSEND_UV"/>
+		<KeyWord name="NOSEND_SOUND"/>
+		<KeyWord name="NOSEND_ATTACH"/>
+		<KeyWord name="NOSEND_Z"/>
+		<KeyWord name="NOSEND"/>
+		<KeyWord name="SEND_NOW"/>
+
+		<!--entity/sky flags2-->
+		<KeyWord name="UNTOUCHABLE"/>
+		<KeyWord name="SHOW"/>
+		<KeyWord name="SKY"/>
+		<KeyWord name="DOME"/>
+		<KeyWord name="SCENE"/>
+		<KeyWord name="CUBE"/>
+		<KeyWord name="CYLINDER"/>
+		
+		<!--entity eflags-->
+		<KeyWord name="FAT"/>
+		<KeyWord name="NARROW"/>
+		<KeyWord name="PASS_TRANSP"/>
+		<KeyWord name="PASS_BOTH"/>
+		<KeyWord name="LOD0"/>
+		<KeyWord name="LOD1"/>
+		<KeyWord name="CLIP0"/>
+		<KeyWord name="CLIP1"/>
+		<KeyWord name="CLIPPED"/>
+		<KeyWord name="ANIMATE"/>
+		<KeyWord name="LOCAL"/>
+		
+		<!--particle effect flags when different from entity flags-->
+		<KeyWord name="STREAK"/>
+		<KeyWord name="BEAM"/>
+		<KeyWord name="MOVE"/>
+
+		<!--event definitions-->
+		<KeyWord name="EVENT_BLOCK"/>
+		<KeyWord name="EVENT_ENTITY"/>
+		<KeyWord name="EVENT_STUCK"/>
+		<KeyWord name="EVENT_PUSH"/>
+		<KeyWord name="EVENT_IMPACT"/>
+		<KeyWord name="EVENT_FRICTION"/>
+		<KeyWord name="EVENT_DETECT"/>
+		<KeyWord name="EVENT_SCAN"/>
+		<KeyWord name="EVENT_SHOOT"/>
+		<KeyWord name="EVENT_TRIGGER"/>
+		<KeyWord name="EVENT_SONAR"/>
+		<KeyWord name="EVENT_FRAME"/>
+		<KeyWord name="EVENT_RECEIVE"/>
+		<KeyWord name="EVENT_DISCONNECT"/>
+		<KeyWord name="EVENT_CLICKUP"/>
+		<KeyWord name="EVENT_BUTTONUP"/>
+		<KeyWord name="EVENT_TOUCH"/>
+		<KeyWord name="EVENT_RELEASE"/>
+		<KeyWord name="EVENT_CLICK"/>
+		<KeyWord name="EVENT_RIGHTCLICK"/>
+		<KeyWord name="EVENT_JOIN"/>
+		<KeyWord name="EVENT_LEAVE"/>
+		<KeyWord name="EVENT_STRING"/>
+		<KeyWord name="EVENT_DATA"/>
+		<KeyWord name="EVENT_VAR"/>
+
+		<!--entity event flags (emask)-->
+		<KeyWord name="DYNAMIC"/>
+		<KeyWord name="ENABLE_BLOCK"/>
+		<KeyWord name="ENABLE_ENTITY"/>
+		<KeyWord name="ENABLE_STUCK"/>
+		<KeyWord name="ENABLE_PUSH"/>
+		<KeyWord name="ENABLE_IMPACT"/>
+		<KeyWord name="ENABLE_FRICTION"/>
+		<KeyWord name="ENABLE_DETECT"/>
+		<KeyWord name="ENABLE_SCAN"/>
+		<KeyWord name="ENABLE_SHOOT"/>
+		<KeyWord name="ENABLE_TRIGGER"/>
+		<KeyWord name="ENABLE_SONAR"/>
+		<KeyWord name="ENABLE_FRAME"/>
+		<KeyWord name="ENABLE_RECEIVE"/>
+		<KeyWord name="ENABLE_DISCONNECT"/>
+		<KeyWord name="ENABLE_BUTTONUP"/>
+		<KeyWord name="ENABLE_TOUCH"/>
+		<KeyWord name="ENABLE_RELEASE"/>
+		<KeyWord name="ENABLE_CLICK"/>
+		<KeyWord name="ENABLE_RIGHTCLICK"/>
+
+		<!--c_trace / c_move mode flags-->
+		<KeyWord name="IGNORE_ME"/>
+		<KeyWord name="IGNORE_YOU"/>
+		<KeyWord name="IGNORE_PASSABLE"/>
+		<KeyWord name="IGNORE_PASSENTS"/>
+		<KeyWord name="IGNORE_MODELS"/>
+		<KeyWord name="IGNORE_SPRITES"/>
+		<KeyWord name="IGNORE_CONTENT"/>
+		<KeyWord name="IGNORE_MAPS"/>
+		<KeyWord name="IGNORE_WORLD"/>
+		<KeyWord name="IGNORE_PUSH"/>
+		<KeyWord name="ACTIVATE_SHOOT"/>
+		<KeyWord name="ACTIVATE_SONAR"/>
+		<KeyWord name="ACTIVATE_TRIGGER"/>
+		<KeyWord name="USE_BOX"/>
+		<KeyWord name="GET_HITVERTEX"/>
+		<KeyWord name="ACTIVATE_PUSH"/>
+		<KeyWord name="USE_AXIS"/>
+		<KeyWord name="USE_AXISR"/>
+		<KeyWord name="SCAN_TEXTURE"/>
+		<KeyWord name="USE_AABB"/>
+		<KeyWord name="GLIDE"/>
+		<KeyWord name="USE_POLYGON"/>
+		<KeyWord name="IGNORE_FLAG2"/>
+
+		<!--scan mode flags-->
+		<KeyWord name="SCAN_ENTS"/>
+		<KeyWord name="SCAN_PATHS"/>
+		<KeyWord name="SCAN_NODES"/>
+		<KeyWord name="SCAN_POS"/>
+		<KeyWord name="SCAN_LIGHTS"/>
+		<KeyWord name="SCAN_LIMIT"/>
+		<KeyWord name="SCAN_FLAG2"/>
+
+		<!--save mode flags-->
+		<KeyWord name="SV_VARS"/>
+		<KeyWord name="SV_INFO"/>
+		<KeyWord name="SV_STRINGS"/>
+		<KeyWord name="SV_POINTERS"/>
+		<KeyWord name="SV_BMAPS"/>
+		<KeyWord name="SV_FUNCTIONS"/>
+		<KeyWord name="SV_KEYS"/>
+		<KeyWord name="SV_LEVEL"/>
+		<KeyWord name="SV_SKY"/>
+		<KeyWord name="SV_VIEWS"/>
+		<KeyWord name="SV_PANELS"/>
+		<KeyWord name="SV_SYS"/>
+		<KeyWord name="SV_MATERIAL"/>
+		<KeyWord name="SV_PATH"/>
+		<KeyWord name="SV_STRUCT"/>
+		<KeyWord name="SV_PHYSICS"/>
+		<KeyWord name="SV_ALL"/>
+
+		<!--MATERIAL flags-->
+		<KeyWord name="PASS_SOLID"/>
+		<KeyWord name="TANGENT"/>
+		<KeyWord name="ENABLE_RENDER"/>
+		<KeyWord name="ENABLE_VIEW"/>
+		<KeyWord name="ENABLE_TREE"/>
+		<KeyWord name="OVERRIDE"/>
+		<KeyWord name="AUTORELOAD"/>
+
+		<!--BMAP flags-->
+		<KeyWord name="BMPF_ARGB"/>
+		<KeyWord name="BMPF_SAVE"/>
+		<KeyWord name="BMPF_MIPMAPS"/>
+
+		<!--STRING flags-->
+		<KeyWord name="STRF_SAVE"/>
+		<KeyWord name="STRF_CONST"/>
+
+		<!--TEXT, VIEW & PANEL flags-->
+		<KeyWord name="REVERSE"/>
+		<KeyWord name="WWRAP"/>
+		<KeyWord name="ARIGHT"/>
+		<KeyWord name="CENTER_X"/>
+		<KeyWord name="CENTER_Y"/>
+		<KeyWord name="CONDENSED"/>
+		<KeyWord name="OUTLINE"/>
+		<KeyWord name="FILTER"/>
+
+		<!--VIEW flags-->
+		<KeyWord name="PROCESS_TARGET"/>
+		<KeyWord name="PROCESS_SCREEN"/>
+		<KeyWord name="PROCESS_STENCIL"/>
+		<KeyWord name="NOCAST"/>
+		<KeyWord name="ISOMETRIC"/>
+		<KeyWord name="PORTALCLIP"/>
+		<KeyWord name="CHILD"/>
+		<KeyWord name="NOSHADER"/>
+		<KeyWord name="NOLOD"/>
+		<KeyWord name="AUDIBLE"/>
+		<KeyWord name="WIREFRAME"/>
+		<KeyWord name="NOCULL"/>
+		<KeyWord name="NOFLAG1"/>
+		<KeyWord name="NOSHADOW"/>
+		<KeyWord name="NOSKY"/>
+		<KeyWord name="NOPARTICLE"/>
+		<KeyWord name="CULL_CW"/>
+		<KeyWord name="NOENT"/>
+		<KeyWord name="NOWORLD"/>
+
+		<!--connection-->
+		<KeyWord name="CONNECT_SERVER"/>
+		<KeyWord name="CONNECT_CLIENT"/>
+
+		<!--send-->
+		<KeyWord name="SEND_VEC"/>
+		<KeyWord name="SEND_ALL"/>
+		<KeyWord name="SEND_RATE"/>
+		<KeyWord name="SEND_UNRELIABLE"/>
+		<KeyWord name="SEND_STRING"/>
+
+		<!--animate-->
+		<KeyWord name="ANM_CYCLE"/>
+		<KeyWord name="ANM_ADD"/>
+		<KeyWord name="ANM_SKIP"/>
+
+		<!--run_mode-->
+		<KeyWord name="RUN_SCRIPT"/>
+		<KeyWord name="RUN_LEVEL"/>
+		<KeyWord name="RUN_ENT"/>
+		<KeyWord name="RUN_SKY"/>
+		<KeyWord name="RUN_MEDIA"/>
+
+		<!--various-->
+		<KeyWord name="PROC_EARLY"/>
+		<KeyWord name="PROC_LATE"/>
+		<KeyWord name="PROC_GLOBAL"/>
+		<KeyWord name="PROC_NOFREEZE"/>
+
+		<!--engine structs-->
+		<KeyWord name="PAD_STRING"/>
+		<KeyWord name="PAD_SOUND"/>
+		<KeyWord name="PAD_BMAP"/>
+		<KeyWord name="PAD_MATERIAL"/>
+		<KeyWord name="PAD_ENTITY"/>
+		<KeyWord name="PAD_PARTICLE"/>
+		<KeyWord name="PAD_FONT"/>
+		<KeyWord name="PAD_TEXT"/>
+		<KeyWord name="PAD_PANEL"/>
+		<KeyWord name="PAD_VIEW"/>
+		<KeyWord name="HBYTE_STRING"/>
+		<KeyWord name="HBYTE_ENTITY"/>
+		<KeyWord name="HBYTE_ENTITY_LOCAL"/>
+		<KeyWord name="HBYTE_ENTITY_LAYER"/>
+		<KeyWord name="HBYTE_FONT"/>
+		<KeyWord name="HBYTE_BMAP"/>
+		<KeyWord name="HBYTE_MATERIAL"/>
+		<KeyWord name="HBYTE_SOUND"/>
+		<KeyWord name="HBYTE_TEXT"/>
+		<KeyWord name="HBYTE_PANEL"/>
+		<KeyWord name="HBYTE_VIEW"/>
+		<KeyWord name="HBYTE_PARTICLE"/>
+		<KeyWord name="HBYTE_ASOUND"/>
+
+		<!--vector types-->
+		<KeyWord name="VECTOR"/>
+		<KeyWord name="ANGLE"/>
+		<KeyWord name="COLOR"/>
+		<KeyWord name="COLOR4"/>
+
+		<!--Acknex object structs-->
+		<KeyWord name="C_LINK"/>
+		<KeyWord name="EVENT"/>
+		<KeyWord name="STRING"/>
+		<KeyWord name="SOUND"/>
+		<KeyWord name="BMAP"/>
+		<KeyWord name="D3DVERTEX"/>
+		<KeyWord name="D3DFVF_D3DVERTEX"/>
+		<KeyWord name="MATERIAL"/>
+		<KeyWord name="ENTITY"/>
+		<KeyWord name="PARTICLE"/>
+		<KeyWord name="CONTACT"/>
+		<KeyWord name="HIT_BLOCK"/>
+		<KeyWord name="HIT_ENTITY"/>
+		<KeyWord name="HIT_TARGET"/>
+		<KeyWord name="FONT"/>
+		<KeyWord name="TEXT"/>
+		<KeyWord name="PANEL"/>
+		<KeyWord name="VIEW"/>
+
+		<!--avars_h-->
+		<!--engine & c_script-->
+		<KeyWord name="version"/>
+		<KeyWord name="edition"/>
+		<KeyWord name="compatibility"/>
+		<KeyWord name="logo"/>
+		<KeyWord name="nexus"/>
+		<KeyWord name="event_type"/>
+		<KeyWord name="warn_level"/>
+		<KeyWord name="max_loops"/>
+		<KeyWord name="freeze_mode"/>
+		<KeyWord name="debug_mode"/>
+		<KeyWord name="debug_external"/>
+		<KeyWord name="mtl_mode"/>
+		<KeyWord name="last_error"/>
+		<KeyWord name="proc_mode"/>
+		<KeyWord name="run_mode"/>
+		<KeyWord name="patch"/>
+		<KeyWord name="result"/>
+		<KeyWord name="max_nexus"/>
+		<KeyWord name="diag_mode"/>
+		<KeyWord name="record_mode"/>
+
+		<!--time & frame-->
+		<KeyWord name="time_step"/>
+		<KeyWord name="time_factor"/>
+		<KeyWord name="time_smooth"/>
+		<KeyWord name="time_frame"/>
+		<KeyWord name="total_ticks"/>
+		<KeyWord name="total_secs"/>
+		<KeyWord name="total_frames"/>
+		<KeyWord name="fps_max"/>
+		<KeyWord name="fps_min"/>
+		<KeyWord name="fps_lock"/>
+		<KeyWord name="reserved01"/>
+		<KeyWord name="time_actions"/>
+		<KeyWord name="time_render"/>
+		<KeyWord name="time_level"/>
+		<KeyWord name="time_entities"/>
+		<KeyWord name="time_effects"/>
+		<KeyWord name="time_pfuncs"/>
+		<KeyWord name="time_portals"/>
+		<KeyWord name="time_sky"/>
+		<KeyWord name="time_client"/>
+		<KeyWord name="time_server"/>
+		<KeyWord name="time_panels"/>
+		<KeyWord name="time_update"/>
+		<KeyWord name="time_physics"/>
+		<KeyWord name="time_total"/>
+		<KeyWord name="time_idle"/>
+		<KeyWord name="time_draw"/>
+		<KeyWord name="time_scope"/>
+		<KeyWord name="sys_seconds"/>
+		<KeyWord name="sys_minutes"/>
+		<KeyWord name="sys_hours"/>
+		<KeyWord name="sys_day"/>
+		<KeyWord name="sys_month"/>
+		<KeyWord name="sys_year"/>
+		<KeyWord name="sys_dow"/>
+		<KeyWord name="sys_doy"/>
+		<KeyWord name="sys_memory"/>
+		<KeyWord name="sys_winversion"/>
+		<KeyWord name="reserved03"/>
+
+		<!--input-->
+		<KeyWord name="enable_joystick"/>
+		<KeyWord name="num_joysticks"/>
+		<KeyWord name="joy_sense"/>
+		<KeyWord name="joy_force"/>
+		<KeyWord name="joy_raw"/>
+		<KeyWord name="joy_rot"/>
+		<KeyWord name="joy_hat"/>
+		<KeyWord name="joy2_raw"/>
+		<KeyWord name="joy2_rot"/>
+		<KeyWord name="joy2_hat"/>
+		<KeyWord name="joy_buttons"/>
+		<KeyWord name="joy2_buttons"/>
+		<KeyWord name="reserved04"/>
+		<KeyWord name="enable_mouse"/>
+		<KeyWord name="mouse_mode"/>
+		<KeyWord name="mouse_sense"/>
+		<KeyWord name="mouse_force"/>
+		<KeyWord name="mouse_pos"/>
+		<KeyWord name="mouse_spot"/>
+		<KeyWord name="mouse_pointer"/>
+		<KeyWord name="mouse_range"/>
+		<KeyWord name="mouse_time"/>
+		<KeyWord name="mouse_moving"/>
+		<KeyWord name="mouse_calm"/>
+		<KeyWord name="mouse_sync"/>
+		<KeyWord name="mouse_valid"/>
+		<KeyWord name="touch_state"/>
+		<KeyWord name="mickey"/>
+		<KeyWord name="mouse_cursor"/>
+		<KeyWord name="mouse_pos3d"/>
+		<KeyWord name="mouse_dir3d"/>
+		<KeyWord name="reserved05"/>
+		<KeyWord name="enable_key"/>
+		<KeyWord name="key_sense"/>
+		<KeyWord name="key_force"/>
+		<KeyWord name="shift_sense"/>
+		<KeyWord name="key_shift"/>
+		<KeyWord name="key_any"/>
+		<KeyWord name="key_lastpressed"/>
+		<KeyWord name="inkey_active"/>
+		<KeyWord name="text_outline"/>
+		<KeyWord name="decal_clip"/>
+
+		<!--video-->
+		<KeyWord name="video_aspect"/>
+		<KeyWord name="video_mode"/>
+		<KeyWord name="video_depth"/>
+		<KeyWord name="video_screen"/>
+		<KeyWord name="screen_size"/>
+		<KeyWord name="screen_color"/>
+		<KeyWord name="window_focus"/>
+		<KeyWord name="video_gamma"/>
+		<KeyWord name="window_pos"/>
+		<KeyWord name="d3d_antialias"/>
+		<KeyWord name="mip_levels"/>
+		<KeyWord name="ambient_color"/>
+
+		<!--renderer-->
+		<KeyWord name="d3d_caps"/>
+		<KeyWord name="d3d_optimize"/>
+		<KeyWord name="d3d_mode"/>
+		<KeyWord name="d3d_nobsp"/>
+		<KeyWord name="d3d_noents"/>
+		<KeyWord name="d3d_novis"/>
+		<KeyWord name="d3d_notex"/>
+		<KeyWord name="d3d_flags"/>
+		<KeyWord name="d3d_lightres"/>
+		<KeyWord name="d3d_monochrome"/>
+		<KeyWord name="d3d_lines"/>
+		<KeyWord name="d3d_anisotropy"/>
+		<KeyWord name="d3d_instancing"/>
+		<KeyWord name="d3d_lockable"/>
+		<KeyWord name="effect_lod"/>
+		<KeyWord name="d3d_autotransparency"/>
+		<KeyWord name="d3d_automaterial"/>
+		<KeyWord name="d3d_shaderversion"/>
+		<KeyWord name="shadow_offset"/>
+		<KeyWord name="shadow_threshold"/>
+		<KeyWord name="shadow_range"/>
+		<KeyWord name="shadow_stencil"/>
+		<KeyWord name="d3d_shadowdepth"/>
+		<KeyWord name="d3d_alphadepth"/>
+		<KeyWord name="shadow_lod"/>
+		<KeyWord name="d3d_texsmaps"/>
+		<KeyWord name="d3d_texbmaps"/>
+		<KeyWord name="d3d_texskins"/>
+		<KeyWord name="d3d_texsurfs"/>
+		<KeyWord name="d3d_textotal"/>
+		<KeyWord name="d3d_texmemory"/>
+		<KeyWord name="d3d_alpharef"/>
+		<KeyWord name="d3d_texfree"/>
+		<KeyWord name="d3d_texdepth"/>
+		<KeyWord name="d3d_texmax"/>
+		<KeyWord name="d3d_texlimit"/>
+		<KeyWord name="d3d_entsort"/>
+		<KeyWord name="d3d_near_sprites"/>
+		<KeyWord name="d3d_mipmapping"/>
+		<KeyWord name="d3d_near_models"/>
+		<KeyWord name="d3d_triplebuffer"/>
+		<KeyWord name="d3d_lodfactor"/>
+		<KeyWord name="d3d_pointlightfalloff"/>
+		<KeyWord name="d3d_spotlightfalloff"/>
+		<KeyWord name="d3d_spotlightcone"/>
+		<KeyWord name="tree_range"/>
+		<KeyWord name="clip_factor"/>
+		<KeyWord name="clip_particles"/>
+		<KeyWord name="d3d_near_decals"/>
+		<KeyWord name="floor_range"/>
+		<KeyWord name="particle_mode"/>
+		<KeyWord name="mip_shaded"/>
+		<KeyWord name="mip_flat"/>
+		<KeyWord name="mip_sprites"/>
+		<KeyWord name="shadow_mode"/>
+		<KeyWord name="group_mode"/>
+
+		<!--level parameters-->
+		<KeyWord name="max_particles"/>
+		<KeyWord name="max_entities"/>
+		<KeyWord name="max_lights"/>
+		<KeyWord name="sky_color"/>
+		<KeyWord name="max_bones"/>
+		<KeyWord name="sky_blend"/>
+		<KeyWord name="sky_speed"/>
+		<KeyWord name="cloud_speed"/>
+		<KeyWord name="d3d_skydepth"/>
+		<KeyWord name="sky_curve"/>
+		<KeyWord name="sky_clip"/>
+		<KeyWord name="terrain_chunk"/>
+		<KeyWord name="terrain_lod"/>
+		<KeyWord name="num_lights"/>
+		<KeyWord name="num_sounds"/>
+		<KeyWord name="sun_light"/>
+		<KeyWord name="sun_color"/>
+		<KeyWord name="sun_angle"/>
+		<KeyWord name="sun_pos"/>
+		<KeyWord name="preload_mode"/>
+		<KeyWord name="fog_color"/>
+		<KeyWord name="d3d_fogcolor1"/>
+		<KeyWord name="d3d_fogcolor2"/>
+		<KeyWord name="d3d_fogcolor3"/>
+		<KeyWord name="d3d_fogcolor4"/>
+		<KeyWord name="max_paths"/>
+		<KeyWord name="num_paths"/>
+		<KeyWord name="tex_cycles"/>
+		<KeyWord name="detail_size"/>
+		<KeyWord name="pos_resolution"/>
+		<KeyWord name="tex_share"/>
+		<KeyWord name="map_subents"/>
+
+		<!--statistics-->
+		<KeyWord name="num_particles"/>
+		<KeyWord name="num_entities"/>
+		<KeyWord name="num_visents"/>
+		<KeyWord name="num_vismappolys"/>
+		<KeyWord name="num_visentpolys"/>
+		<KeyWord name="num_vistriangles"/>
+		<KeyWord name="num_actions"/>
+
+		<!--multiplayer-->
+		<KeyWord name="connection"/>
+		<KeyWord name="dplay_maxclients"/>
+		<KeyWord name="dplay_bandwidth"/>
+		<KeyWord name="dplay_unreliable"/>
+		<KeyWord name="dplay_smooth"/>
+		<KeyWord name="dplay_localfunction"/>
+		<KeyWord name="dplay_compression"/>
+		<KeyWord name="dplay_entupdate"/>
+		<KeyWord name="dplay_pingrate"/>
+		<KeyWord name="dplay_entrate"/>
+		<KeyWord name="dplay_packetsize"/>
+		<KeyWord name="dplay_timeout"/>
+		<KeyWord name="dplay_latency"/>
+		<KeyWord name="dplay_bps"/>
+		<KeyWord name="dplay_bpspeak"/>
+		<KeyWord name="dplay_bpsreliable"/>
+		<KeyWord name="dplay_bpsunreliable"/>
+		<KeyWord name="dplay_dropped"/>
+		<KeyWord name="recbuf_size"/>
+		<KeyWord name="dplay_diag"/>
+		<KeyWord name="num_clients"/>
+		<KeyWord name="dplay_encrypt"/>
+		<KeyWord name="dplay_port"/>
+		<KeyWord name="dplay_id"/>
+		<KeyWord name="dplay_status"/>
+		<KeyWord name="reserved63"/>
+
+		<!--audio-->
+		<KeyWord name="sound_vol"/>
+		<KeyWord name="cdaudio_vol"/>
+		<KeyWord name="midi_vol"/>
+		<KeyWord name="media_handle"/>
+		<KeyWord name="media_layer"/>
+		<KeyWord name="num_mediastreams"/>
+		<KeyWord name="doppler_factor"/>
+		<KeyWord name="master_vol"/>
+		<KeyWord name="video_alpha"/>
+		<KeyWord name="reserved64"/>
+
+		<!--physics & collision-->
+		<KeyWord name="hull_fatmin"/>
+		<KeyWord name="hull_fatmax"/>
+		<KeyWord name="hull_narrowmin"/>
+		<KeyWord name="hull_narrowmax"/>
+		<KeyWord name="max_ph_entities"/>
+		<KeyWord name="collision_mode"/>
+		<KeyWord name="trace_mode"/>
+		<KeyWord name="move_mode"/>
+		<KeyWord name="move_friction"/>
+		<KeyWord name="move_restrict"/>
+		<KeyWord name="normal"/>
+		<KeyWord name="bounce"/>
+		<KeyWord name="target"/>
+		<KeyWord name="vglide"/>
+		<KeyWord name="on_passable"/>
+		<KeyWord name="in_passable"/>
+		<KeyWord name="in_solid"/>
+		<KeyWord name="tex_light"/>
+		<KeyWord name="tex_color"/>
+		<KeyWord name="tex_fog"/>
+		<KeyWord name="tex_flag1"/>
+		<KeyWord name="tex_flag2"/>
+		<KeyWord name="tex_flag3"/>
+		<KeyWord name="tex_flag4"/>
+		<KeyWord name="tex_flag5"/>
+		<KeyWord name="tex_flag6"/>
+		<KeyWord name="tex_flag7"/>
+		<KeyWord name="tex_flag8"/>
+		<KeyWord name="hitvertex"/>
+		<KeyWord name="terrain_cell_size"/>
+		<KeyWord name="trace_hit"/>
+		<KeyWord name="num_bodies"/>
+		<KeyWord name="num_contacts"/>
+		<KeyWord name="ph_iterations"/>
+		<KeyWord name="ph_fps_max_lock"/>
+		<KeyWord name="move_min_z"/>
+		<KeyWord name="disable_z_glide"/>
+		<KeyWord name="ph_max_contacts"/>
+		<KeyWord name="ph_check_distance"/>
+		<KeyWord name="ph_num_collisions"/>
+		<KeyWord name="move_pushback"/>
+		<KeyWord name="shadow_meshsize"/>
+		<KeyWord name="security_mode"/>
+		<KeyWord name="last_skill"/>
+
+		<!--recently added-->
+		<KeyWord name="reserved8"/>
+
+		<!--button states-->
+		<KeyWord name="key_bksp"/>
+		<KeyWord name="key_enter"/>
+		<KeyWord name="key_esc"/>
+		<KeyWord name="key_alt"/>
+		<KeyWord name="key_ctrl"/>
+		<KeyWord name="key_shiftl"/>
+		<KeyWord name="key_shiftr"/>
+		<KeyWord name="key_space"/>
+		<KeyWord name="key_tab"/>
+		<KeyWord name="key_f1"/>
+		<KeyWord name="key_f2"/>
+		<KeyWord name="key_f3"/>
+		<KeyWord name="key_f4"/>
+		<KeyWord name="key_f5"/>
+		<KeyWord name="key_f6"/>
+		<KeyWord name="key_f7"/>
+		<KeyWord name="key_f8"/>
+		<KeyWord name="key_f9"/>
+		<KeyWord name="key_f10"/>
+		<KeyWord name="key_f11"/>
+		<KeyWord name="key_f12"/>
+		<KeyWord name="key_a"/>
+		<KeyWord name="key_b"/>
+		<KeyWord name="key_c"/>
+		<KeyWord name="key_d"/>
+		<KeyWord name="key_e"/>
+		<KeyWord name="key_f"/>
+		<KeyWord name="key_g"/>
+		<KeyWord name="key_h"/>
+		<KeyWord name="key_i"/>
+		<KeyWord name="key_j"/>
+		<KeyWord name="key_k"/>
+		<KeyWord name="key_l"/>
+		<KeyWord name="key_m"/>
+		<KeyWord name="key_n"/>
+		<KeyWord name="key_o"/>
+		<KeyWord name="key_p"/>
+		<KeyWord name="key_q"/>
+		<KeyWord name="key_r"/>
+		<KeyWord name="key_s"/>
+		<KeyWord name="key_t"/>
+		<KeyWord name="key_u"/>
+		<KeyWord name="key_v"/>
+		<KeyWord name="key_w"/>
+		<KeyWord name="key_x"/>
+		<KeyWord name="key_y"/>
+		<KeyWord name="key_z"/>
+		<KeyWord name="key_cuu"/>
+		<KeyWord name="key_cud"/>
+		<KeyWord name="key_cur"/>
+		<KeyWord name="key_cul"/>
+		<KeyWord name="key_pgup"/>
+		<KeyWord name="key_pgdn"/>
+		<KeyWord name="key_home"/>
+		<KeyWord name="key_end"/>
+		<KeyWord name="key_ins"/>
+		<KeyWord name="key_del"/>
+		<KeyWord name="key_car"/>
+		<KeyWord name="key_cal"/>
+		<KeyWord name="key_slash"/>
+		<KeyWord name="key_equals"/>
+		<KeyWord name="key_period"/>
+		<KeyWord name="key_comma"/>
+		<KeyWord name="key_brackl"/>
+		<KeyWord name="key_brackr"/>
+		<KeyWord name="key_semic"/>
+		<KeyWord name="key_bksl"/>
+		<KeyWord name="key_apos"/>
+		<KeyWord name="key_minusc"/>
+		<KeyWord name="key_grave"/>
+		<KeyWord name="key_caps"/>
+		<KeyWord name="key_scrlk"/>
+		<KeyWord name="key_plus"/>
+		<KeyWord name="key_sz"/>
+		<KeyWord name="key_ae"/>
+		<KeyWord name="key_ue"/>
+		<KeyWord name="key_oe"/>
+		<KeyWord name="key_1"/>
+		<KeyWord name="key_2"/>
+		<KeyWord name="key_3"/>
+		<KeyWord name="key_4"/>
+		<KeyWord name="key_5"/>
+		<KeyWord name="key_6"/>
+		<KeyWord name="key_7"/>
+		<KeyWord name="key_8"/>
+		<KeyWord name="key_9"/>
+		<KeyWord name="key_0"/>
+		<KeyWord name="key_pause"/>
+		<KeyWord name="mouse_left"/>
+		<KeyWord name="mouse_right"/>
+		<KeyWord name="mouse_middle"/>
+		<KeyWord name="joy_1"/>
+		<KeyWord name="joy_2"/>
+		<KeyWord name="joy_3"/>
+		<KeyWord name="joy_4"/>
+		<KeyWord name="joy_5"/>
+		<KeyWord name="joy_6"/>
+		<KeyWord name="joy_7"/>
+		<KeyWord name="joy_8"/>
+		<KeyWord name="joy_9"/>
+		<KeyWord name="joy_10"/>
+		<KeyWord name="joy_11"/>
+		<KeyWord name="joy_12"/>
+		<KeyWord name="joy2_1"/>
+		<KeyWord name="joy2_2"/>
+		<KeyWord name="joy2_3"/>
+		<KeyWord name="joy2_4"/>
+		<KeyWord name="joy2_5"/>
+		<KeyWord name="joy2_6"/>
+		<KeyWord name="joy2_7"/>
+		<KeyWord name="joy2_8"/>
+		<KeyWord name="joy2_9"/>
+		<KeyWord name="joy2_10"/>
+		<KeyWord name="joy2_11"/>
+		<KeyWord name="joy2_12"/>
+		<KeyWord name="reserved9"/>
+
+		<!--engine event functions-->
+		<KeyWord name="on_bksp"/>
+		<KeyWord name="on_enter"/>
+		<KeyWord name="on_esc"/>
+		<KeyWord name="on_alt"/>
+		<KeyWord name="on_ctrl"/>
+		<KeyWord name="on_shiftl"/>
+		<KeyWord name="on_shiftr"/>
+		<KeyWord name="on_space"/>
+		<KeyWord name="on_tab"/>
+		<KeyWord name="on_f1"/>
+		<KeyWord name="on_f2"/>
+		<KeyWord name="on_f3"/>
+		<KeyWord name="on_f4"/>
+		<KeyWord name="on_f5"/>
+		<KeyWord name="on_f6"/>
+		<KeyWord name="on_f7"/>
+		<KeyWord name="on_f8"/>
+		<KeyWord name="on_f9"/>
+		<KeyWord name="on_f10"/>
+		<KeyWord name="on_f11"/>
+		<KeyWord name="on_f12"/>
+		<KeyWord name="on_a"/>
+		<KeyWord name="on_b"/>
+		<KeyWord name="on_c"/>
+		<KeyWord name="on_d"/>
+		<KeyWord name="on_e"/>
+		<KeyWord name="on_f"/>
+		<KeyWord name="on_g"/>
+		<KeyWord name="on_h"/>
+		<KeyWord name="on_i"/>
+		<KeyWord name="on_j"/>
+		<KeyWord name="on_k"/>
+		<KeyWord name="on_l"/>
+		<KeyWord name="on_m"/>
+		<KeyWord name="on_n"/>
+		<KeyWord name="on_o"/>
+		<KeyWord name="on_p"/>
+		<KeyWord name="on_q"/>
+		<KeyWord name="on_r"/>
+		<KeyWord name="on_s"/>
+		<KeyWord name="on_t"/>
+		<KeyWord name="on_u"/>
+		<KeyWord name="on_v"/>
+		<KeyWord name="on_w"/>
+		<KeyWord name="on_x"/>
+		<KeyWord name="on_y"/>
+		<KeyWord name="on_z"/>
+		<KeyWord name="on_cuu"/>
+		<KeyWord name="on_cud"/>
+		<KeyWord name="on_cur"/>
+		<KeyWord name="on_cul"/>
+		<KeyWord name="on_pgup"/>
+		<KeyWord name="on_pgdn"/>
+		<KeyWord name="on_home"/>
+		<KeyWord name="on_end"/>
+		<KeyWord name="on_ins"/>
+		<KeyWord name="on_del"/>
+		<KeyWord name="on_car"/>
+		<KeyWord name="on_cal"/>
+		<KeyWord name="on_slash"/>
+		<KeyWord name="on_equals"/>
+		<KeyWord name="on_period"/>
+		<KeyWord name="on_comma"/>
+		<KeyWord name="on_brackl"/>
+		<KeyWord name="on_brackr"/>
+		<KeyWord name="on_semic"/>
+		<KeyWord name="on_bksl"/>
+		<KeyWord name="on_apos"/>
+		<KeyWord name="on_minusc"/>
+		<KeyWord name="on_grave"/>
+		<KeyWord name="on_caps"/>
+		<KeyWord name="on_scrlk"/>
+		<KeyWord name="on_plus"/>
+		<KeyWord name="on_sz"/>
+		<KeyWord name="on_ae"/>
+		<KeyWord name="on_ue"/>
+		<KeyWord name="on_oe"/>
+		<KeyWord name="on_1"/>
+		<KeyWord name="on_2"/>
+		<KeyWord name="on_3"/>
+		<KeyWord name="on_4"/>
+		<KeyWord name="on_5"/>
+		<KeyWord name="on_6"/>
+		<KeyWord name="on_7"/>
+		<KeyWord name="on_8"/>
+		<KeyWord name="on_9"/>
+		<KeyWord name="on_0"/>
+		<KeyWord name="on_pause"/>
+		<KeyWord name="on_mouse_left"/>
+		<KeyWord name="on_mouse_right"/>
+		<KeyWord name="on_mouse_middle"/>
+		<KeyWord name="on_joy1"/>
+		<KeyWord name="on_joy2"/>
+		<KeyWord name="on_joy3"/>
+		<KeyWord name="on_joy4"/>
+		<KeyWord name="on_joy5"/>
+		<KeyWord name="on_joy6"/>
+		<KeyWord name="on_joy7"/>
+		<KeyWord name="on_joy8"/>
+		<KeyWord name="on_joy9"/>
+		<KeyWord name="on_joy10"/>
+		<KeyWord name="on_joy11"/>
+		<KeyWord name="on_joy12"/>
+		<KeyWord name="on_joy2_1"/>
+		<KeyWord name="on_joy2_2"/>
+		<KeyWord name="on_joy2_3"/>
+		<KeyWord name="on_joy2_4"/>
+		<KeyWord name="on_joy2_5"/>
+		<KeyWord name="on_joy2_6"/>
+		<KeyWord name="on_joy2_7"/>
+		<KeyWord name="on_joy2_8"/>
+		<KeyWord name="on_joy2_9"/>
+		<KeyWord name="on_joy2_10"/>
+		<KeyWord name="on_joy2_11"/>
+		<KeyWord name="on_joy2_12"/>
+		<KeyWord name="on_anykey"/>
+		<KeyWord name="on_click"/>
+		<KeyWord name="on_mouse_stop"/>
+		<KeyWord name="on_close"/>
+		<KeyWord name="on_load"/>
+		<KeyWord name="on_level"/>
+		<KeyWord name="on_server"/>
+		<KeyWord name="on_client"/>
+		<KeyWord name="on_d3d_lost"/>
+		<KeyWord name="on_d3d_reset"/>
+		<KeyWord name="render_sky"/>
+		<KeyWord name="render_world"/>
+		<KeyWord name="render_entities"/>
+		<KeyWord name="render_solid"/>
+		<KeyWord name="on_exit"/>
+		<KeyWord name="on_frame"/>
+		<KeyWord name="on_message"/>
+		<KeyWord name="on_maximize"/>
+		<KeyWord name="on_minimize"/>
+		<KeyWord name="on_resize"/>
+		<KeyWord name="on_level_load"/>
+		<KeyWord name="on_ent_remove"/>
+		<KeyWord name="render_layer"/>
+		<KeyWord name="on_reserved"/>
+
+		<!--engine pointers-->
+		<KeyWord name="camera"/>
+		<KeyWord name="light_view"/>
+		<KeyWord name="render_view"/>
+		<KeyWord name="watched"/>
+		<KeyWord name="me"/>
+		<KeyWord name="you"/>
+		<KeyWord name="sky_cube_level"/>
+		<KeyWord name="sky_dome_level"/>
+		<KeyWord name="mouse_ent"/>
+		<KeyWord name="mouse_map"/>
+		<KeyWord name="render_map"/>
+		<KeyWord name="render_mesh"/>
+		<KeyWord name="mtl"/>
+		<KeyWord name="mtl_flat"/>
+		<KeyWord name="mtl_shaded"/>
+		<KeyWord name="mtl_model"/>
+		<KeyWord name="mtl_terrain"/>
+		<KeyWord name="mtl_sprite"/>
+		<KeyWord name="mtl_particle"/>
+		<KeyWord name="mtl_metal"/>
+		<KeyWord name="mtl_sky"/>
+		<KeyWord name="mtl_shadow"/>
+		<KeyWord name="mtl_unlit"/>
+		<KeyWord name="debug_str"/>
+		<KeyWord name="watch_str"/>
+		<KeyWord name="delimit_str"/>
+		<KeyWord name="tex_name"/>
+		<KeyWord name="app_name"/>
+		<KeyWord name="level_name"/>
+		<KeyWord name="player_name"/>
+		<KeyWord name="session_name"/>
+		<KeyWord name="server_name"/>
+		<KeyWord name="server_ip"/>
+		<KeyWord name="work_dir"/>
+		<KeyWord name="save_dir"/>
+		<KeyWord name="exe_dir"/>
+		<KeyWord name="player"/>
+		<KeyWord name="user_name"/>
+		<KeyWord name="passable_ent"/>
+		<KeyWord name="path_name"/>
+		<KeyWord name="command_str"/>
+		<KeyWord name="level_ent"/>
+		<KeyWord name="mouse_panel"/>
+		<KeyWord name="epunused1"/>
+		<KeyWord name="render_d3dmaterial"/>
+		<KeyWord name="render_d3dxeffect"/>
+		<KeyWord name="render_material"/>
+		<KeyWord name="render_target"/>
+		<KeyWord name="render_stencil"/>
+		<KeyWord name="render_zbuffer"/>
+		<KeyWord name="video_overlay"/>
+		<KeyWord name="render_lightmap"/>
+		<KeyWord name="epunused2"/>
+		<KeyWord name="hit"/>
+
+		<!--engine matrices-->
+		<KeyWord name="matTexture"/>
+		<KeyWord name="matEffect"/>
+		<KeyWord name="matView"/>
+		<KeyWord name="matViewInv"/>
+		<KeyWord name="matProj"/>
+		<KeyWord name="matWorld"/>
+		<KeyWord name="matViewProj"/>
+		<KeyWord name="matProjInv"/>
+
+		<!--engine functions-->
+		<KeyWord name="eunused1"/>
+		<KeyWord name="SendPacket" func="yes">
+			<Overload retVal="void*" >
+				<Param name="long to"/>
+				<Param name="void *data"/>
+				<Param name="long size"/>
+				<Param name="long flags"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ReceivePacket" func="yes">
+			<Overload retVal="void*" >
+				<Param name="long from"/>
+				<Param name="void *data"/>
+				<Param name="long size"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ScanMessage" func="yes">
+			<Overload retVal="long*" >
+				<Param name="UINT message"/>
+				<Param name="WPARAM w_param"/>
+				<Param name="LPARAM l_param"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="GetObj" func="yes">
+			<Overload retVal="long*" >
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="GetFunc" func="yes">
+			<Overload retVal="long*" >
+				<Param name="char *name"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="eunused2"/>
+		<KeyWord name="CallFunc" func="yes">
+			<Overload retVal="long*" >
+				<Param name="long"/>
+				<Param name="long"/>
+				<Param name="long"/>
+				<Param name="long"/>
+				<Param name="long"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="on_sendpacket"/>
+		<KeyWord name="on_receivepacket"/>
+		<KeyWord name="on_scanmessage"/>
+		<KeyWord name="eunused2"/>
+		<KeyWord name="isPointer"/>
+		<KeyWord name="EngineFunctions"/>
+		<KeyWord name="eunused3"/>
+
+		<!--DirectX interfaces-->
+		<KeyWord name="pdi"/>
+		<KeyWord name="pdimouse"/>
+		<KeyWord name="pdikbd"/>
+		<KeyWord name="pdijoy"/>
+		<KeyWord name="pbody"/>
+		<KeyWord name="pvertexdecl"/>
+		<KeyWord name="dunused1"/>
+		<KeyWord name="pds"/>
+		<KeyWord name="pdsb"/>
+		<KeyWord name="pd3d"/>
+		<KeyWord name="pd3ddev"/>
+		<KeyWord name="hWnd"/>
+		<KeyWord name="pd3dcaps"/>
+		<KeyWord name="hInstance"/>
+		<KeyWord name="hWndTarget"/>
+		<KeyWord name="pRectTarget"/>
+		<KeyWord name="pPaths"/>
+		<KeyWord name="pVars"/>
+		<KeyWord name="hWndParent"/>
+		<KeyWord name="dunused2"/>
+		<KeyWord name="pdsbs"/>
+		<KeyWord name="mat_effect1"/>
+		<KeyWord name="mat_effect2"/>
+		<KeyWord name="mat_effect3"/>
+		<KeyWord name="mat_effect4"/>
+		<KeyWord name="mat_effect5"/>
+		<KeyWord name="mat_effect6"/>
+		<KeyWord name="mat_effect7"/>
+		<KeyWord name="mat_effect8"/>
+
+		<!--bmap_c-->
+		<KeyWord name="color_for_bmap" func="yes">
+			<Overload retVal="COLOR*" >
+				<Param name="BMAP *bmap"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="var format"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="color_to_bmap" func="yes">
+			<Overload retVal="var" >
+				<Param name="COLOR *color"/>
+				<Param name="BMAP *bmap"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="var format"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_createcolor" func="yes">
+			<Overload retVal="BMAP*" >
+				<Param name="var width"/>
+				<Param name="var height"/>
+				<Param name="var format"/>
+				<Param name="COLOR *color"/>
+				<Param name="var alpha"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_split" func="yes">
+			<Overload retVal="void" >
+				<Param name="char* name"/>
+				<Param name="var splits_x"/>
+				<Param name="var splits_y"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_colorize" func="yes">
+			<Overload retVal="void" >
+				<Param name="BMAP *bmap"/>
+				<Param name="COLOR *cTarget"/>
+				<Param name="COLOR *cSource"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_drawborder" func="yes">
+			<Overload retVal="void" >
+				<Param name="BMAP *bmap"/>
+				<Param name="COLOR *color"/>
+				<Param name="var alpha"/>
+			</Overload>
+		</KeyWord>
+
+		<!--compat_h-->
+		<KeyWord name="skill1"/>
+		<KeyWord name="skill2"/>
+		<KeyWord name="skill3"/>
+		<KeyWord name="skill4"/>
+		<KeyWord name="skill5"/>
+		<KeyWord name="skill6"/>
+		<KeyWord name="skill7"/>
+		<KeyWord name="skill8"/>
+		<KeyWord name="skill9"/>
+		<KeyWord name="skill10"/>
+		<KeyWord name="skill11"/>
+		<KeyWord name="skill12"/>
+		<KeyWord name="skill13"/>
+		<KeyWord name="skill14"/>
+		<KeyWord name="skill15"/>
+		<KeyWord name="skill16"/>
+		<KeyWord name="skill17"/>
+		<KeyWord name="skill18"/>
+		<KeyWord name="skill19"/>
+		<KeyWord name="skill20"/>
+		<KeyWord name="skill21"/>
+		<KeyWord name="skill22"/>
+		<KeyWord name="skill23"/>
+		<KeyWord name="skill24"/>
+		<KeyWord name="skill25"/>
+		<KeyWord name="skill26"/>
+		<KeyWord name="skill27"/>
+		<KeyWord name="skill28"/>
+		<KeyWord name="skill29"/>
+		<KeyWord name="skill30"/>
+		<KeyWord name="skill31"/>
+		<KeyWord name="skill32"/>
+		<KeyWord name="skill33"/>
+		<KeyWord name="skill34"/>
+		<KeyWord name="skill35"/>
+		<KeyWord name="skill36"/>
+		<KeyWord name="skill37"/>
+		<KeyWord name="skill38"/>
+		<KeyWord name="skill39"/>
+		<KeyWord name="skill40"/>
+		<KeyWord name="skill41"/>
+		<KeyWord name="skill42"/>
+		<KeyWord name="skill43"/>
+		<KeyWord name="skill44"/>
+		<KeyWord name="skill45"/>
+		<KeyWord name="skill46"/>
+		<KeyWord name="skill47"/>
+		<KeyWord name="skill48"/>
+		<KeyWord name="skill49"/>
+		<KeyWord name="skill50"/>
+		<KeyWord name="skill51"/>
+		<KeyWord name="skill52"/>
+		<KeyWord name="skill53"/>
+		<KeyWord name="skill54"/>
+		<KeyWord name="skill55"/>
+		<KeyWord name="skill56"/>
+		<KeyWord name="skill57"/>
+		<KeyWord name="skill58"/>
+		<KeyWord name="skill59"/>
+		<KeyWord name="skill60"/>
+		<KeyWord name="skill61"/>
+		<KeyWord name="skill62"/>
+		<KeyWord name="skill63"/>
+		<KeyWord name="skill64"/>
+		<KeyWord name="skill65"/>
+		<KeyWord name="skill66"/>
+		<KeyWord name="skill67"/>
+		<KeyWord name="skill68"/>
+		<KeyWord name="skill69"/>
+		<KeyWord name="skill70"/>
+		<KeyWord name="skill71"/>
+		<KeyWord name="skill72"/>
+		<KeyWord name="skill73"/>
+		<KeyWord name="skill74"/>
+		<KeyWord name="skill75"/>
+		<KeyWord name="skill76"/>
+		<KeyWord name="skill77"/>
+		<KeyWord name="skill78"/>
+		<KeyWord name="skill79"/>
+		<KeyWord name="skill80"/>
+		<KeyWord name="skill81"/>
+		<KeyWord name="skill82"/>
+		<KeyWord name="skill83"/>
+		<KeyWord name="skill84"/>
+		<KeyWord name="skill85"/>
+		<KeyWord name="skill86"/>
+		<KeyWord name="skill87"/>
+		<KeyWord name="skill88"/>
+		<KeyWord name="skill89"/>
+		<KeyWord name="skill90"/>
+		<KeyWord name="skill91"/>
+		<KeyWord name="skill92"/>
+		<KeyWord name="skill93"/>
+		<KeyWord name="skill94"/>
+		<KeyWord name="skill95"/>
+		<KeyWord name="skill96"/>
+		<KeyWord name="skill97"/>
+		<KeyWord name="skill98"/>
+		<KeyWord name="skill99"/>
+		<KeyWord name="skill100"/>
+		<KeyWord name="skill_a"/>
+		<KeyWord name="skill_b"/>
+		<KeyWord name="skill_c"/>
+		<KeyWord name="skill_d"/>
+		<KeyWord name="matrix11"/>
+		<KeyWord name="matrix12"/>
+		<KeyWord name="matrix13"/>
+		<KeyWord name="matrix14"/>
+		<KeyWord name="matrix21"/>
+		<KeyWord name="matrix22"/>
+		<KeyWord name="matrix23"/>
+		<KeyWord name="matrix24"/>
+		<KeyWord name="matrix31"/>
+		<KeyWord name="matrix32"/>
+		<KeyWord name="matrix33"/>
+		<KeyWord name="matrix34"/>
+		<KeyWord name="matrix41"/>
+		<KeyWord name="matrix42"/>
+		<KeyWord name="matrix43"/>
+		<KeyWord name="matrix44"/>
+		<KeyWord name="dllfunction"/>
+		<KeyWord name="sun_albedo"/>
+		<KeyWord name="nextframe"/>
+		<KeyWord name="VISIBLE"/>
+		<KeyWord name="enable_polycollision"/>
+		<KeyWord name="mat_flat"/>
+		<KeyWord name="mat_shaded"/>
+		<KeyWord name="mat_model"/>
+		<KeyWord name="mat_terrain"/>
+		<KeyWord name="mat_sprite"/>
+		<KeyWord name="mat_particle"/>
+		<KeyWord name="mat_metal"/>
+		<KeyWord name="mat_sky"/>
+		<KeyWord name="mat_shadow"/>
+		<KeyWord name="mat_unlit"/>
+		<KeyWord name="trace_floor"/>
+		<KeyWord name="VERSION_810"/>
+		<KeyWord name="VERSION_820"/>
+		<KeyWord name="VERSION_830"/>
+
+		<!--keys_c-->
+		<KeyWord name="button_pressed" func="yes">
+			<Overload retVal="var" >
+				<Param name="var buttons"/>
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="joy_pressed" func="yes">
+			<Overload retVal="var" >
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="joy2_pressed" func="yes">
+			<Overload retVal="var" >
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="joy_hit" func="yes">
+			<Overload retVal="var" >
+				<Param name="var num"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="_keys_down"/>
+		<KeyWord name="key_hit" func="yes">
+			<Overload retVal="var" >
+				<Param name="var num"/>
+			</Overload>
+			<Overload retVal="var" >
+				<Param name="STRING *keystr"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="mouse_drag" func="yes">
+			<Overload retVal="var"/>
+		</KeyWord>
+
+		<!--level_c-->
+		<!--helper functions-->
+		<KeyWord name="view_copy" func="yes">
+			<Overload retVal="var" >
+				<Param name="VIEW *view"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ang_align" func="yes">
+			<Overload retVal="var" >
+				<Param name="ANGLE *ang"/>
+				<Param name="VECTOR *to"/>
+				<Param name="VECTOR *axis"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="terrain_get_z" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *ent"/>
+				<Param name="var number"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="terrain_set_z" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *ent"/>
+				<Param name="var number"/>
+				<Param name="var z"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="terrain_vertex" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *ent"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="terrain_height" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *ent"/>
+				<Param name="VECTOR *position"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="terrain_pos" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="ENTITY *terrain"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="var z"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="PIXEL_DX" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *terrain"/>
+				<Param name="BMAP *bmap"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="PIXEL_DY" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *terrain"/>
+				<Param name="BMAP *bmap"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="terrain_pixel_for_pos" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="ENTITY *terrain"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="BMAP *skin"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="terrain_pixel_to_pos" func="yes">
+			<Overload retVal="VECTOR*" >
+				<Param name="ENTITY *terrain"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="BMAP *skin"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="terrain_setpixel" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *terrain"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="BMAP *skin"/>
+				<Param name="COLOR *color"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="terrain_getpixel" func="yes">
+			<Overload retVal="COLOR*" >
+				<Param name="ENTITY *terrain"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="BMAP *skin"/>
+			</Overload>
+		</KeyWord>
+
+		<!--main functions-->
+		<KeyWord name="level_continue"/>
+		<KeyWord name="level_loadsp" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *levelname"/>
+				<Param name="char *bmapname"/>
+				<Param name="var mode"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="level_loadsplash" func="yes">
+			<Overload retVal="var" >
+				<Param name="var l"/>
+				<Param name="var b"/>
+				<Param name="var m"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="level_loadendless" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *filename"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="terrain_raise" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *terrain"/>
+				<Param name="var raise_z"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="terrain_raisevertex" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *terrain"/>
+				<Param name="var x"/>
+				<Param name="var y"/>
+				<Param name="var raise_z"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="terrain_fence" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY* terrain"/>
+				<Param name="var height"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="terrain_tile" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *terrain"/>
+			</Overload>
+		</KeyWord>
+
+		<!--Entity seeding functions-->
+		<KeyWord name="ent_place_z" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *terrain"/>
+				<Param name="var pos_z"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_terrain_place" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *ent"/>
+				<Param name="ENTITY *terrain"/>
+				<Param name="var minheight"/>
+				<Param name="var maxheight"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_seed" func="yes">
+			<Overload retVal="var" >
+				<Param name="char *name"/>
+				<Param name="ENTITY *terrain"/>
+				<Param name="BMAP *mask"/>
+				<Param name="COLOR *color"/>
+				<Param name="var dist"/>
+				<Param name="var mode"/>
+				<Param name="Entity Action"/>
+			</Overload>
+			<Overload retVal="var" >
+				<Param name="char *name"/>
+				<Param name="ENTITY *terrain"/>
+				<Param name="BMAP *mask"/>
+				<Param name="COLOR *color"/>
+				<Param name="var dist"/>
+				<Param name="Entity Action"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="bmap_shadow" func="yes">
+			<Overload retVal="BMAP*"/>
+		</KeyWord>
+		<KeyWord name="ent_radius" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *ent"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="ent_paintshadow" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *terrain"/>
+				<Param name="ENTITY *ent"/>
+			</Overload>
+		</KeyWord>
+
+		<!--litec_h-->
+		<KeyWord name="NULL"/>
+		<KeyWord name="TRUE"/>
+		<KeyWord name="FALSE"/>
+		<KeyWord name="true"/>
+		<KeyWord name="false"/>
+		<KeyWord name="byte"/>
+		<KeyWord name="HINSTANCE"/>
+		<KeyWord name="HMODULE"/>
+		<KeyWord name="HWND"/>
+		<KeyWord name="HDC"/>
+		<KeyWord name="BOOL"/>
+		<KeyWord name="LRESULT"/>
+		<KeyWord name="UINT"/>
+		<KeyWord name="WPARAM"/>
+		<KeyWord name="LPARAM"/>
+		<KeyWord name="DWORD"/>
+		<KeyWord name="VOID"/>
+		<KeyWord name="HRESULT"/>
+		<KeyWord name="LONG"/>
+		<KeyWord name="HANDLE"/>
+		<KeyWord name="LPVOID"/>
+		<KeyWord name="HBITMAP"/>
+		<KeyWord name="BYTE"/>
+		<KeyWord name="WORD"/>
+		<KeyWord name="LPCSTR"/>
+		<KeyWord name="LPTSTR"/>
+		<KeyWord name="LPSTR"/>
+		<KeyWord name="HMENU"/>
+		<KeyWord name="HBRUSH"/>
+		<KeyWord name="UINT_PTR"/>
+		<KeyWord name="RECT"/>
+
+		<!--clib functions-->
+		<KeyWord name="cosh" func="yes">
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sinh" func="yes">
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="exp" func="yes">
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="fabs" func="yes">
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="labs" func="yes">
+			<Overload retVal="long" >
+				<Param name="long x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="floor" func="yes">
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="fmod" func="yes">
+			<Overload retVal="double" >
+				<Param name="double x"/>
+				<Param name="double y"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="log" func="yes">
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="log10" func="yes">
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pow" func="yes">
+			<Overload retVal="double" >
+				<Param name="double x"/>
+				<Param name="double y"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="tanh" func="yes">
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sqrt" func="yes">
+			<Overload retVal="double" >
+				<Param name="double x"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="rand" func="yes">
+			<Overload retVal="int"/>
+		</KeyWord>
+		<KeyWord name="srand" func="yes">
+			<Overload retVal="void" >
+				<Param name="int seed"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="_pi"/>
+		<KeyWord name="memcmp" func="yes">
+			<Overload retVal="int" >
+				<Param name="void*"/>
+				<Param name="void*"/>
+				<Param name="long"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="memcpy" func="yes">
+			<Overload retVal="void*" >
+				<Param name="void*"/>
+				<Param name="void*"/>
+				<Param name="long"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="memset" func="yes">
+			<Overload retVal="void*" >
+				<Param name="void*"/>
+				<Param name="int"/>
+				<Param name="long"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="malloc" func="yes">
+			<Overload retVal="void*" >
+				<Param name="long"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="free" func="yes">
+			<Overload retVal="void" >
+				<Param name="void*"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="realloc" func="yes">
+			<Overload retVal="void*" >
+				<Param name="void*"/>
+				<Param name="long"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="strcpy" func="yes">
+			<Overload retVal="char*" >
+				<Param name="char*"/>
+				<Param name="const char*"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="strcat" func="yes">
+			<Overload retVal="char*" >
+				<Param name="char*"/>
+				<Param name="const char*"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="strcmp" func="yes">
+			<Overload retVal="int" >
+				<Param name="const char*"/>
+				<Param name="const char*"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="strlen" func="yes">
+			<Overload retVal="int" >
+				<Param name="const char*"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="Sleep" func="yes">
+			<Overload retVal="int" >
+				<Param name="int"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="printf" func="yes">
+			<Overload retVal="long" >
+				<Param name="char*"/>
+				<Param name="..."/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="DefineApi" func="yes">
+			<Overload retVal="long" >
+				<Param name="long"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="sizeof" func="yes">
+			<Overload retVal="long" >
+				<Param name="long"/>
+			</Overload>
+		</KeyWord>
+
+		<!--shadows_c-->
+		<KeyWord name="pssm_res"/>
+		<KeyWord name="pssm_numsplits"/>
+		<KeyWord name="pssm_splitweight"/>
+		<KeyWord name="pssm_splitdist"/>
+		<KeyWord name="pssm_transparency"/>
+		<KeyWord name="pssm_fbias"/>
+
+		<!--PSSM helper functions-->
+		<KeyWord name="pssm_split" func="yes">
+			<Overload retVal="var" >
+				<Param name="VIEW *view"/>
+				<Param name="var num"/>
+				<Param name="var weight"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pssm_texscale" func="yes">
+			<Overload retVal="float*" >
+				<Param name="float fSize"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="pssm_viewcpy" func="yes">
+			<Overload retVal="void" >
+				<Param name="VIEW *from"/>
+				<Param name="VIEW *to"/>
+			</Overload>
+		</KeyWord>
+
+		<!--pssm main function-->
+		<KeyWord name="pssm_run" func="yes">
+			<Overload retVal="var" >
+				<Param name="var numsplits"/>
+			</Overload>
+		</KeyWord>
+
+		<!--particles_c-->
+		<KeyWord name="vec_randomize" func="yes">
+			<Overload retVal="var" >
+				<Param name="VECTOR *vec"/>
+				<Param name="var range"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="p_fade" func="yes">
+			<Overload retVal="var" >
+				<Param name="PARTICLE* p"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="p_follow" func="yes">
+			<Overload retVal="var" >
+				<Param name="PARTICLE* p"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="p_remove_z" func="yes">
+			<Overload retVal="var" >
+				<Param name="PARTICLE* p"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="p_snow" func="yes">
+			<Overload retVal="var" >
+				<Param name="PARTICLE* p"/>
+			</Overload>
+		</KeyWord>
+
+		<!--sprite particle helper functions-->
+		<KeyWord name="p_fade_sprite" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *p"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="p_follow_sprite" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *p"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="p_run_sprite" func="yes">
+			<Overload retVal="var" >
+				<Param name="ENTITY *p"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="effect_sprite" func="yes">
+			<Overload retVal="var" >
+				<Param name="STRING *image"/>
+				<Param name="Function"/>
+				<Param name="var number"/>
+				<Param name="VECTOR *pos"/>
+				<Param name="VECTOR *vel"/>
+			</Overload>
+		</KeyWord>
+
+
+   </AutoComplete>
+</NotepadPlus>

@@ -1,0 +1,35 @@
+!_TAG_FILE_FORMAT2/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED0/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHORDarren Hiebert/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAMEExuberant Ctags//
+!_TAG_PROGRAM_URLhttp://ctags.sourceforge.net/official site/
+!_TAG_PROGRAM_VERSION5.8.7.SC//
+VERTEX_SNAPPINGC:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx3;"F
+AFFINE_TEX_MAPPINGC:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx4;"F
+POLY_CUTOFFC:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx5;"F
+ANGLE_SURFACE_DARKENC:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx8;"F
+matWorldViewProjaccess:float4x4C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx10;"B
+matWorldaccess:float4x4C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx11;"B
+iLightsaccess:floatC:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx13;"B
+vecLightPosaccess:float4signature:[8]C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx14;"C
+vecLightColoraccess:float4signature:[8]C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx15;"C
+vecLightDiraccess:float4signature:[8]C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx16;"C
+vecViewPosaccess:float4C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx18;"B
+vecViewDiraccess:float4C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx19;"B
+vecFogaccess:float4C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx20;"B
+vecFogColoraccess:float4C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx21;"B
+vecLightaccess:float4C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx22;"B
+vecColoraccess:float4C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx23;"B
+vecAmbientaccess:float4C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx24;"B
+vecEmissiveaccess:float4C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx25;"B
+vecSkill1access:float4C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx26;"B
+vecSkill41access:float4C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx27;"B
+entSkin1access:textureC:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx29;"B
+ColorSamplerC:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx31;"E
+VSaccess:voidC:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx39;"A
+VERTEX_SNAPPINGC:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx53;"H
+AFFINE_TEX_MAPPINGC:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx66;"H
+POLY_CUTOFFC:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx111;"H
+PSaccess:float4C:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx120;"A
+access:techniqueC:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx147;"J
+fallbackaccess:techniqueC:\Users\magom\Desktop\RetroAcknex\code\fx\mtl_anim_sprite_.fx161;"J

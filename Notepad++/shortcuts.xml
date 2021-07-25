@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<NotepadPlus>
+    <InternalCommands>
+        <Shortcut id="47000" Ctrl="no" Alt="no" Shift="no" Key="0" />
+        <Shortcut id="49000" Ctrl="no" Alt="no" Shift="no" Key="0" />
+        <Shortcut id="41014" Ctrl="no" Alt="no" Shift="no" Key="0" />
+    </InternalCommands>
+    <Macros>
+        <Macro name="Trim Trailing Space and Save" Ctrl="no" Alt="yes" Shift="yes" Key="83">
+            <Action type="2" message="0" wParam="42024" lParam="0" sParam="" />
+            <Action type="2" message="0" wParam="41006" lParam="0" sParam="" />
+        </Macro>
+    </Macros>
+    <UserDefinedCommands>
+        <Command name="GameStudio Manual" Ctrl="no" Alt="no" Shift="no" Key="112">..\acknex.chm</Command>
+    </UserDefinedCommands>
+    <PluginCommands>
+        <PluginCommand moduleName="NppExec.dll" internalID="1" Ctrl="no" Alt="no" Shift="no" Key="116" />
+        <PluginCommand moduleName="NppTextFX.dll" internalID="80" Ctrl="yes" Alt="yes" Shift="no" Key="65" />
+    </PluginCommands>
+    <ScintillaKeys>
+        <ScintKey ScintID="2177" menuCmdID="42001" Ctrl="no" Alt="no" Shift="yes" Key="46" />
+        <ScintKey ScintID="2178" menuCmdID="42002" Ctrl="yes" Alt="no" Shift="no" Key="45" />
+    </ScintillaKeys>
+</NotepadPlus>

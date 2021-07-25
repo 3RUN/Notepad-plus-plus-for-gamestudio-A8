@@ -1,0 +1,14 @@
+
+2021-07-24 22-35-53:
+====================
+InvalidArgument=Значение "30" недопустимо для "SelectedIndex".
+Имя параметра: SelectedIndex
+   в System.Windows.Forms.ListBox.set_SelectedIndex(Int32 value)
+   в SourceCookifier.frmSettings..ctor()
+
+2021-07-24 22-46-19:
+====================
+InvalidArgument=Значение "2" недопустимо для "SelectedIndex".
+Имя параметра: SelectedIndex
+   в System.Windows.Forms.ListBox.set_SelectedIndex(Int32 value)
+   в SourceCookifier.frmSettings..ctor()
