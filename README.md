@@ -1,4 +1,4 @@
-# Notepad++ (8.1.2 portable) integration into GameStudio A8
+# Notepad++ integration into GameStudio A8
 
 It supports:
 - compiling LiteC and publishing into .exe
@@ -44,7 +44,8 @@ To get dark theme for HLSL working do:
 ![Alt text](https://github.com/3RUN/Notepad-plus-plus-for-gamestudio-a8/blob/main/Screenshots/hlsl.png?raw=true "HLSL.")
 
 # Sources
-Notepad++ https://github.com/notepad-plus-plus/notepad-plus-plus
+Notepad++ (v8.1.2 portable) https://github.com/notepad-plus-plus/notepad-plus-plus
+
 Plugins:
 - Custom Toolbar (Author: dw-dev@gmx.com Homepage: https://sourceforge.net/projects/npp-customize)
 - LanguageHelp (Author: Franco Stellari Homepage: https://github.com/francostellari/NppPlugins)
