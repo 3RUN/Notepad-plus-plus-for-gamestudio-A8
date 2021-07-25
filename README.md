@@ -20,6 +20,7 @@ To fix void plugin icons after enabling Dark Mode:
 
 If sourceCookifier does something weird with code parsing:
 - if it's a .h file make sure to reindent it from notepad++
+- run as administrator, to make sure that notepad++ has write/read permissions
 - else report it
 
 To get dark theme for HLSL working do:
