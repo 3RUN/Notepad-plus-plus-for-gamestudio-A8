@@ -9,9 +9,11 @@ It supports:
 
 Known issues (solutions can be found below):
 - plugin icons on toolbar won't work correctly when Dark Mode is enabled
-- sourceCookifier might have troubles parsing some parts of your code (needs testing)
-- HLSL has only white theme out of the box (since it's UDL it's not possible to apply themes)
+- sourceCookifier plugin causes a lot of troubles...
+- sourceCookifier will throw 'cannot open file' error, if path to the file contains unicode characters
+- after 'cannot open file' error if won't update the code jumper, to fix this togggle between session modes
 - comment blocks won't hide anything from code jumper (sourceCookifier's parser)
+- HLSL has only white theme out of the box (since it's UDL it's not possible to apply themes)
 - if your project name has spaces, NppExec might have problems executing it (replace spaces with at least _ )
 
 # How to use
