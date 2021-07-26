@@ -2,8 +2,45 @@
 <NotepadPlus>
 	<AutoComplete language="C">
 		<Environment ignoreCase="no" startFunc="(" stopFunc=")" paramSeparator="," terminal=";" />
-		<KeyWord name="#define"/>
+		<KeyWord name="#define" />
+		<KeyWord name="#elif" />
+		<KeyWord name="#else" />
+		<KeyWord name="#endif" />
 		<KeyWord name="#undef"/>
+		<KeyWord name="#if" />
+		<KeyWord name="#ifdef" />
+		<KeyWord name="#ifndef" />
+		<KeyWord name="#include" />
+		<KeyWord name="//!"/>
+		<KeyWord name="do" />
+		<KeyWord name="while" func="yes">
+			<Overload retVal="" >
+				<Param name="comparison"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="for" func="yes">
+			<Overload retVal="" >
+				<Param name="initialization; comparison; continuation;"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="if" func="yes">
+			<Overload retVal="" >
+				<Param name="comparison"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="else" />
+		<KeyWord name="switch" func="yes">
+			<Overload retVal="" >
+				<Param name="expression"/>
+			</Overload>
+		</KeyWord>
+		<KeyWord name="break" />
+		<KeyWord name="continue" />
+		<KeyWord name="case" />
+		<KeyWord name="void" />
+		<KeyWord name="function" />
+		<KeyWord name="return" />
+		<KeyWord name="goto" />
 		<KeyWord name="PRAGMA_ZERO"/>
 		<KeyWord name="PRAGMA_POINTER"/>
 		<KeyWord name="PRAGMA_API"/>
@@ -12,13 +49,7 @@
 		<KeyWord name="PRAGMA_PATH"/>
 		<KeyWord name="PRAGMA_LEVEL"/>
 		<KeyWord name="PRAGMA_BIND"/>
-		<KeyWord name="#ifdef"/>
-		<KeyWord name="#ifndef"/>
-		<KeyWord name="#else"/>
-		<KeyWord name="#endif"/>
-		<KeyWord name="#include"/>
-		<KeyWord name="//!"/>
-
+		
 		<!--Augmented reality / video camera plugin-->
 		<!--VIDEOCAMERA-->
 		<KeyWord name="MARKER"/>
