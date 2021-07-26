@@ -12,6 +12,7 @@ Known issues (solutions can be found below):
 - sourceCookifier might have troubles parsing some parts of your code (needs testing)
 - HLSL has only white theme out of the box (since it's UDL it's not possible to apply themes)
 - comment blocks won't hide anything from code jumper (sourceCookifier's parser)
+- if your project name has spaces, NppExec might have problems executing it (replace spaces with at least _ )
 
 # How to use
 Simply copy Notepad++ folder into your GameStudio rootfolder and it's all set.
