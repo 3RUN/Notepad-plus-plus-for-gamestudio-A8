@@ -742,8 +742,8 @@
                 <Description>Actions</Description>
                 <BuildIn>false</BuildIn>
                 <RegexPatterns>
-                  <string>/^(action)[[:blank:]]*([[:alnum:]_]+)[[:blank:]]*([(]+.*[)]+)[[:space:]]*[^;].*$/\2/C/e</string>
-                  <string>/^(action)[[:blank:]]*([[:alnum:]_]+)[[:blank:]]*([(]+.*[)]+)*$/\2/C/e</string>
+                  <string>/^(action)[[:blank:]]*([\*]*[[:blank:]]*[[:alnum:]_]+)[[:blank:]]*([(]+.*[)]+)[^;\}]+$/\2/C/e</string>
+                  <string>/^(action)[[:blank:]]*([\*]*[[:blank:]]*[[:alnum:]_]+)[[:blank:]]*([(]+.*[)]+)*$/\2/C/e</string>
                 </RegexPatterns>
                 <Show>true</Show>
                 <TrackCaret>false</TrackCaret>
@@ -761,8 +761,8 @@
                 <Description>Functions</Description>
                 <BuildIn>false</BuildIn>
                 <RegexPatterns>
-                  <string>/^(void|function|var|int|long|float|double|VECTOR|ANGLE)[[:blank:]]*([\*]*[[:blank:]]*[[:alnum:]_]+)[[:blank:]]*([(]+.*[)]+)[[:space:]]*[^;]/\2&#x2;access:\1&#x2;signature:\3/A/e</string>
-                  <string>/^(void|function|var|int|long|float|double|VECTOR|ANGLE)[[:blank:]]*([\*]*[[:blank:]]*[[:alnum:]_]+)[[:blank:]]*([(]+.*[)]+)$/\2&#x2;access:\1&#x2;signature:\3/A/e</string>
+                  <string>/^(void|function|var|int|long|float|double|VECTOR|ANGLE)[[:blank:]]*([\*]*[[:blank:]]*[[:alnum:]_]+)[[:blank:]]*([(]+.*[)]+)[^;\}]+$/\2&#x2;access:\1&#x2;signature:\3/A/e</string>
+                  <string>/^(void|function|var|int|long|float|double|VECTOR|ANGLE)[[:blank:]]*([\*]*[[:blank:]]*[[:alnum:]_]+)[[:blank:]]*([(]+.*[)]+)*$/\2&#x2;access:\1&#x2;signature:\3/A/e</string>
                 </RegexPatterns>
                 <Show>true</Show>
                 <TrackCaret>false</TrackCaret>
@@ -780,8 +780,8 @@
                 <Description>Prototypes</Description>
                 <BuildIn>false</BuildIn>
                 <RegexPatterns>
-                  <string>/^([[:alnum:]_]+)[[:blank:]]+([[:alnum:]_]+)[[:blank:]]*([(][[:alnum:]\**[:blank:],]*[)])[[:blank:]]*[;]/\2&#x2;access:\1&#x2;signature:\3/B/e</string>
-                  <string>/^([[:alnum:]_]+)[[:blank:]]*([\*]+[[:blank:]]*[[:alnum:]_]+)[[:blank:]]*([(][[:alnum:]\**[:blank:],]*[)])[[:blank:]]*[;]/\2&#x2;access:\1&#x2;signature:\3/B/e</string>
+                  <string>/^([[:alnum:]_]+)[[:blank:]]+([[:alnum:]_]+)[[:blank:]]*([(]+.*[)]+)[[:blank:]]*[;]/\2&#x2;access:\1&#x2;signature:\3/B/e</string>
+                  <string>/^([[:alnum:]_]+)[[:blank:]]*([\*]+[[:blank:]]*[[:alnum:]_]+)[[:blank:]]*([(]+.*[)]+)[[:blank:]]*[;]/\2&#x2;access:\1&#x2;signature:\3/B/e</string>
                 </RegexPatterns>
                 <Show>true</Show>
                 <TrackCaret>false</TrackCaret>
